@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width,user-scalable=no,initial-scale=1.0,maximum=1.0,minimum=1.0">
+	<title>Document</title>
+
+	<script src="./js/jquery-3.2.1.min.js"></script>
+	<style>
+      html,body {
+	     	font-size: 62.5%
+	     }
+	  html,body,p,ul ,li {
+	  	padding: 0;
+	  	margin: 0;
+	  }
+	  a {
+	  	text-decoration: none;
+	  }
+	  ul{
+	  	list-style: none;
+	  }
+	  .head {
+	  	background:#1b91e0;
+		width:100%;
+		height:4.4rem;
+		/*padding: 1.1rem 1.7rem*/
+	  }
+	   .head>div {
+	   	float: left;}
+        .head-p {
+        	position: absolute;
+        	left: 40%;
+        	right: 40%;
+        }
+	   .head-p p{
+	   	font-size: 1.6rem;
+	   	color: #fff;
+	   	line-height: 4.4rem;
+
+	   }
+	   .head-img {
+	   	padding: 1.1rem 0 1.1rem 1.7rem;
+	   }
+	   .icon ul {
+	   	position: absolute;
+	   	right: 1.7rem;
+	   	top: 1.7rem;
+	   }
+	   .icon ul li {
+	   	float: left;
+	   	border: 1px solid white;
+	   	width: 4px;
+	   	height: 4px;
+	   	border-radius: 100%;
+	   	background: white;
+	   	margin-left: 0.5rem;
+	   	 }
+	   	 .middle {
+	   	 	position: relative;
+	   	 	background: #eceef3;
+	   	 }
+	   	 .author {
+	   	 	background: white;
+	   	 }
+	   	 .people-name{
+
+	   	 	padding: 1.5rem 0.5rem 4.5rem 1.5rem;
+	   	 }
+	   	 .people-name img {
+
+	   	 	width: 4.3rem;
+	   	 	height: 4.3rem;
+	   	 }
+	   	 .people>div {
+	   	 	float: left;
+	   	 }
+	   	 .info>ul>li {
+	   	 	float: left;
+	   	 	padding: 1.9rem 1rem ;
+	   	 }
+	   	 .info ul li b {
+
+		font-size:1.6rem;
+		color:#323232;
+		
+		line-height:1.6rem;
+		/*text-align:justify;*/}
+	   	 .info ul li p {
+
+			font-size:1.6rem;
+			color:#666666;
+			
+			line-height:1.6rem;}
+		.info>p{
+
+			font-size:13px;
+			color:#666666;
+			letter-spacing:0;
+			text-align:justify;
+			position: relative;
+			top: -1rem;
+
+			padding:  1rem ;
+		}
+		.clearfix::after {
+			clear: both;
+			content: "";
+			height: 0;
+			display: block;
+		}
+		.content>ul>li{
+			float: left;
+			padding: 1rem;
+			position: relative;top: -1.9rem;
+		}
+		.bottom {
+			position: absolute;bottom:0;
+		}
+		.bottom ul li {
+         float: left;
+		}
+		.bottom ul li:nth-child(1){
+			background:#1c91e0;
+			width:22.2rem;
+			height:4.8rem;
+			text-align: center;
+		}
+		.bottom ul li:nth-child(1) a{
+         color: white;
+         line-height: 4.8rem;
+         font-size: 1.6rem;
+		}
+		.bottom ul li:nth-child(2){
+			background:#fff;
+			padding: 0 0 0 2rem;
+		}
+        .bottom ul li:nth-child(2) a{
+           font-size: 1.6rem;
+           color: #666666;
+           line-height: 4.8rem;
+
+        }
+        /*.chek {
+        	position: absolute;
+        	right: 1rem;
+        	margin-top: 2rem;
+        }
+        .chek img {
+        	width: 2.2rem;
+        	height: 2.2rem;
+        }*/
+        .author>div {
+        	float: left;
+        }
+        .chek.chek1 {
+        	position: relative;
+        	left: 0.1rem;
+        	top: -0.5rem;
+        }
+        .all-selected {
+        		width: 2rem;
+          	height: 2rem;
+        	display: inline-block;
+            background-image: url("./images/1.png");
+            background-size: 100% 100%;
+          
+        }
+          .no-selected {
+          	display: inline-block;
+          	width: 2rem;
+          	height: 2rem;
+            background-image: url("./images/2.png");
+            background-size: 100% 100%;
+       }
+         .all-noselected {
+         	display: inline-block;
+            background-image: url("./images/2.png");
+            background-size: 100% 100%;
+            	width: 2rem;
+          	height: 2rem;
+            
+
+        }
+        .selected {
+        		width: 2rem;
+          	height: 2rem;
+        	display: inline-block;
+            background-image: url("./images/1.png");
+            background-size: 100% 100%;
+            
+        }
+	</style>
+</head>
+<body>
+	<div class="head">
+		 <div class="head-img">
+		 	<img src="./images/6056A300-3F13-4FEF-B319-4960099E27BD@1x.png" alt="">
+		 </div>
+		 <div class="head-p">
+		 	<p>批量通知患者</p>
+		 </div>
+		 <div class="icon">
+		 	<ul>
+		 		<li></li>
+		 		<li></li>
+		 		<li></li>
+		    </ul>
+		 </div>
+	</div>
+	<div class="middle">
+	<!-- <div>
+		<div></div>
+		<div><p>关闭管理</p></div>
+	</div> -->
+	<div>
+		
+			<div class="author clearfix">
+				<div class="people">
+				  <div class="people-name">
+				  	<img src="./images/49B44AD4-FF3F-450E-B8BF-BF8429BD9CEA@2x.png" alt="">
+				  </div>	
+			       <div class="info">
+			       	  <ul class="clearfix">
+			       	  	<li><b>王小石</b></li>
+			       	  	<li><p>感冒</p></li>
+			       	  </ul>
+
+                      <p>男 27岁</p>
+                      <div class="content">
+                        <ul>
+                        	<li><p>已支付</p></li>
+                        	<li><p>黑龙江/哈尔滨</p></li>
+                        </ul>
+                       </div>
+                      
+			       </div>
+				</div>
+                 <span class="select-btn no-selected"></span> 
+                 	
+			</div>
+			
+			<div class="author clearfix">
+				<div class="people">
+				  <div class="people-name">
+				  	<img src="./images/49B44AD4-FF3F-450E-B8BF-BF8429BD9CEA@2x.png" alt="">
+				  </div>	
+			       <div class="info">
+			       	  <ul class="clearfix">
+			       	  	<li><b>王小石</b></li>
+			       	  	<li><p>感冒</p></li>
+			       	  </ul>
+
+                      <p>男 27岁</p>
+                      <div class="content">
+                        <ul>
+                        	<li><p>已支付</p></li>
+                        	<li><p>黑龙江/哈尔滨</p></li>
+                        </ul>
+                       </div>
+                      
+			       </div>
+				</div>
+				<span class="select-btn no-selected"></span>
+			</div>
+			<div class="author  clearfix">
+				<div class="people">
+				  <div class="people-name">
+				  	<img src="./images/49B44AD4-FF3F-450E-B8BF-BF8429BD9CEA@2x.png" alt="">
+				  </div>	
+			       <div class="info">
+			       	  <ul class="clearfix">
+			       	  	<li><b>王小石</b></li>
+			       	  	<li><p>感冒</p></li>
+			       	  </ul>
+
+                      <p>男 27岁</p>
+                      <div class="content">
+                        <ul>
+                        	<li><p>已支付</p></li>
+                        	<li><p>黑龙江/哈尔滨</p></li>
+                        </ul>
+                       </div>
+                      
+			       </div>
+				</div>
+                <span class="select-btn no-selected"></span>
+			</div>
+	
+	</div>
+	</div>
+	<div class="bottom">
+		<ul>
+			<li><a href="">下一步</a></li>
+			<li class="selected-all"><a href="">全选</a>
+			<span class="all-btn all-noselected">
+				
+			</span></li>
+		</ul>
+	</div>
+	<script>
+	    $(function(){
+          $ (".all-btn").click(function(){
+                if($(".all-btn").hasClass("all-noselected")){
+                	$(".all-btn").addClass("all-selected").removeClass("all-noselected");
+                	$(".select-btn").addClass("selected").removeClass("no-selected")
+                }
+                else{$(".all-btn").addClass("all-noselected").removeClass("all-selected");
+                      $(".select-btn").addClass("no-selected").removeClass("selected")};
+          }); 
+           $(".select-btn").click(function(){
+           	  $(this).toggleClass("selected");
+             
+                var selectedNum = $(".selected").length;
+                var selectedBtnNum = $(".select-btn").length;
+                if(selectedNum == selectedBtnNum) {
+                    $(".all-btn").addClass("all-selected").removeClass("all-noselected");
+                }else {
+                    $(".all-btn").addClass("all-noselected").removeClass("all-selected");
+                }
+           })
+
+			})	
+	</script>
+	 
+	
+</body>
+</html>

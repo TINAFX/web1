@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fangtianxia</title>
+	<script src="./js/jquery-3.2.1.min.js"></script>
+	<style>
+	html,body,img,ul,li,a {
+		padding: 0;
+		margin:0;
+	}
+       a{
+       	text-decoration: none;
+       }
+       ul {
+       	list-style: none;
+       }
+       .clearfix::after {
+       	height: 0;
+       	content: "";
+       	clear: both;
+       	display: block;
+       }
+       .head-logo>div {
+       	float: left;
+
+       }
+       .head-logo{
+			    width: 100%;
+			    height: 50px;
+			    background: url(./images/newgif.gif) repeat-x 0 -666px;
+			    position: relative;
+			    min-width: 1200px;
+			       }
+       .nav {
+       	margin-left: 50px;
+       }
+	   .nav>ul>li {
+	   	float: left;
+	   	line-height: 50px;
+	   	padding: 0 10px;
+	   	position: relative;
+	   }
+	   .nav>ul>li>a {
+	   	color: white;
+	   	font-size: 15px;
+	   	font-weight: bold;
+	   }
+	   .nav>ul>li:hover {
+	   	background: #b30000;
+	   }
+	   .nav>ul>li:hover .child, .nav>ul>li:hover 
+	   .children{
+	   	display: block;
+	   }
+	   .child {
+	   	width: 460px;
+	   }
+	   .child li {
+	   	float: left;
+	   }
+	   .children {
+	   	width: 120px;
+	   }
+	   .children li {
+	   	padding: 5px 0;
+
+	   }
+       .child, .children {
+       /*	width: 460px;*/
+       	/*margin-left: 10px;*/
+       	background: white;
+       	line-height: 1;
+        display: none;
+        position: absolute;top: 50px;
+        z-index: 3
+       }
+       .child li{
+       	float: left;
+       	padding: 10px;
+       }
+       .child a, .children a {
+       	font-size: 14px;
+       	color: #666;
+       	margin-left: 5px;
+       text-align: left;
+       }
+       .children button {
+       	background: #c00;
+       	margin: 5px auto;
+       	padding: 8px 25px;
+       	border-radius: 10%;
+       }
+       .children button a {
+       	color: white;
+       }
+       .childrened {
+       	background: white;
+       	width: 300px;
+       	position: absolute;
+       	top:50px;
+       	display: none;
+       }
+       .childrened li {
+       	float: left;
+       	line-height: 1px;
+       /*	padding: 5px;*/
+       }
+       .childrened .line {
+       	
+       	width: 0px;
+       	border: 1px dashed;
+       	color: #efefef;
+       	height: 190px;
+       }
+       .childrened li p {
+          font-size: 12px;
+          color: #666;
+          padding: 5px;
+          text-align: center;
+       }
+       .childrened img {
+       	width: 98px;
+       	height: 98px;
+       	margin: 5px;
+       }
+       .nav-bar {
+           width: 16px;
+           height: 16px;
+           background-image: url("./images/icon-dingd.png");
+           background-position: 0 0px;
+           margin: 17px 0 0 15px;
+       }
+       .nav-bar1 a {
+       	 color: white;
+       	 font-size: 15px;
+          line-height: 50px;
+          margin-left: 5px;
+    
+       }
+       .nav-bar2 {
+       	      width: 16px;
+           height: 16px;
+           background-image: url("./images/icon-dingd.png");
+           background-position: 0 -16px;
+           margin: 17px 0 0 10px;
+       }
+          .line1 {
+              border: 1px solid;
+              color: white;
+              height: 20px;
+              width: 0px;
+              position: relative;
+              left: 50px;
+              top:13px;
+       }
+      
+        .nav1 ul li {
+        	padding: 0 10px;
+        	line-height: 50px;
+        }
+        .nav1 ul li a {
+        	font-weight: bold;
+        	font-size: 15px;
+        	color: white;
+        }
+        .nav1 ul li:hover {
+        	background-color: #b30000;
+        } 
+        .head-logo img {
+        	margin-top: 9px;
+        }
+        .center-bar {
+        	position: relative;
+        }
+        .photo-img li {
+        	float: left;
+        }
+        .photo-img {
+        	position: absolute;
+        	width: 2000px;
+        	height: 464px;
+        	left:50%;
+        	top:0px;
+            margin-left: -1000px;
+           overflow: hidden;
+        }
+        .hide {
+        	display: none;
+        }
+        .photo{
+        	
+        	 position: relative;
+            width: 100%;
+            height: 464px;
+            overflow: hidden;
+        }
+        .icon li {
+        	float: left;
+        	border: 1px white solid;
+        	border-radius: 100%;
+        	width:20px;
+        	height: 20px;
+        	position: relative;
+		    top: 434px;
+		    left: 620px;
+		    margin: 0 10px;
+		    background:white;
+        }
+        .left {
+        	background-image: url(./images/newgif.gif);
+        	width: 27px;
+        	height: 44px;
+        	position: relative;
+		    top: 202px;
+		    left: 160px;
+        	background-position: 0 -1068px;
+        	
+        }
+        .right {
+        	background-image: url(./images/newgif.gif);
+        	width: 27px;
+        	height: 44px;
+        	position: relative;
+		    top: 162px;
+		    left: 1200px;
+        	background-position: 0 -1124px;
+        }
+        .icon li.selected, .tab li.selected  {
+            background: #c00;
+        } 
+        .tab li.selected {
+        	border-radius: 10%;
+        }
+        .fix-div {
+        	padding: 0 0 0 20px;
+        	width: 720px;
+        	height: 240px;
+          background: rgba(0,0,0,0.6);
+        	/*background-color: #410306;*/
+        	position: absolute;
+        	top: 50%;
+        	left: 50%;
+        	margin-left: -360px;
+        	margin-top: -120px;
+        	box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.6);
+        }
+        .fix {
+        	padding: 20px 0;
+
+        }
+        .fix>div{
+        	float: left;
+        }
+        .fix p {
+        	color: white;
+        	margin-left: 8px;
+        	margin-top: 18px;
+        	font-size: 15px;
+        }
+       .fix span{
+            color: white;
+            margin-left: 5px;
+            margin-top: 18px;
+            display: inline-block;
+       }
+       .fix a {
+       	color: white;
+       font-size: 15px;
+      
+       }
+       .fix :hover a {
+       	border-bottom: 1px white solid;
+       }
+       .tab>li {
+       	float: left;
+        position: relative; 
+        padding: 10px;
+        position: relative;top: -10px;
+       }
+       .tab>a, .tab>li>a {
+       	color: white
+       }
+       .tab>a>img {
+       	position: absolute;
+       	margin-top: 10px;
+       }
+       .tab>a {
+       	margin-left: 10px;
+       	position: absolute;
+       }
+       .tab>a>img:hover {
+         display: block;
+       }
+
+       .box {
+       	border: 1px solid white;
+       	width: 610px;
+       	height: 40px;
+       	background:white;
+       	margin-top: 20px;
+       	text-align: left;
+
+       }
+       .big-box {
+       	margin-top: 40px;
+       }
+       .box p {
+       	color: #333;
+       	margin-left: 10px;
+       	font-size: 15px;
+       	position: relative;top: -5px;
+       }
+       .box-img {
+   
+            margin-left: 610px;
+            position: relative;top: -42px;
+       }
+       .menu {
+       	border: 1px solid white;
+       	height: 120px;
+       	width: 100px;
+       	background:white;
+        padding: 0px 0 0 10px;
+       	line-height: 1;
+        /*display: none;*/
+        position: absolute;top: 120px;left: 650px;
+        z-index: 4
+       }
+       /*.tab>a>img:hover.menu{
+       	display: block;
+       }*/
+       .menu a {
+       	font-size: 14px;
+       	color: #333;
+       	line-height: 25px;
+       }
+       .content-head, .content-coustom{
+       	margin:20px 0 0 60px;
+       }
+       .list>div {
+       	float: left;
+       }
+        .list-one>div {
+       	float: left;
+       }
+       .list-one {
+       	margin-left: 20px;
+       }
+       .buy {
+       	margin-top: 10px;
+       }
+       .buy a {
+          font-size: 35px;
+          color: #c00;
+       }
+        .buy-new ul li {
+        
+          padding: 0px 10px;
+        }
+        .buy-new ul li a {
+        	line-height: 35px;
+        	color: #333;
+        	font-size: 14px;
+        }
+        .buy-new ul li:hover a {
+        	color: #c00;
+        	border-bottom: 1px solid #c00;
+        }
+        .scan {
+        	border: 1px dashed #ddd;
+        	height: 50px;
+        	margin-top: 10px;
+        	margin-left: 20px;
+        	/*width: 1px;*/
+        }
+        .content-head>div {
+            float: left;
+        }
+        .buy-new .selected a {
+         color: #c00;
+        }
+    .content-line {
+    	border:1px solid #ddd;
+    	width: 2000px;
+        margin-top: 10px;
+    }
+    .tip>div {
+    	float: left;
+    }
+     .tip-one {
+     	border: 1px solid #ddd;
+     	height: 43px;
+     	width: 398px;
+     	background: #f1f1f1;
+     	text-align: center;
+     }
+     .tip-one  a{
+     	color: #333;
+     	font-size: 18px;
+     	line-height: 43px;
+     }
+     .tip-one.select{
+     	background: white;
+     	border-top: 2px solid #c00;
+     }
+     .img>div {
+        float: left;
+        margin-top: 15px;
+     }
+     .img1, .img2, .img3, .img4 {
+     	border: 1px solid #ddd;
+        width: 259px;
+        height: 230px;
+        padding: 10px;
+        position: relative;
+     }
+     .img2, .img3, .img4 {
+     	margin-left: 20px;
+     }
+    .img-fix {
+      background-color:  rgba(0,0,0,0.6);
+    width: 244px;
+    height: 34px;
+    position: absolute;bottom: 80px;
+    padding: 0 8px;
+     }
+     .img-fix a {
+     line-height: 34px;
+     font-size:14px;
+     color: #efefef  
+     }
+     .img-fix:hover a {
+     	border-bottom: 1px solid white
+     }
+     .adv {
+     	position: absolute;
+     	top: 2px;
+     	left: 200px;
+     }
+     .adv p, .advd p {
+      color: white;
+      font-weight: bold;
+      font-size: 12px;
+     }
+     .base>div {
+     	float: left;
+     }
+     .base {
+     	position: relative;top: -5px;
+     	border: 1px solid #ddd;
+     	height: 69px;
+     	width: 258px;
+     }
+    .base-one {
+      width: 120px;
+      height: 70px;
+      border:1px solid white;
+      text-align: center;
+     }
+     .base-one a {
+     	font-size: 18px;
+     	line-height: 30px;
+     	color: #333;
+     	font-weight: bold;
+     }
+     .base-one:hover a {
+     	color: #c00;
+     }
+     .base-one p {
+     	font-size: 12px;
+     	color: #333;
+     }
+     .base-two {
+     	 width: 120px;
+      height: 70px;
+      border:1px solid white;
+      text-align: center;
+     	
+     }
+     .base-two h2{
+      position: relative;top: -12px;
+      font-size: 18px;
+      color: #c00;
+      font-weight: bold;
+     }
+     .base-two p {
+     	position: relative;top: -12px;
+     	font-size: 12px;
+     	color: #333;
+     }
+     .img5, .img6, .img7, .img8{
+     	position: relative;
+     } 
+   .img6, .img7, .img8 {
+     	margin-left: 25px;
+     	
+     }
+     .advd {
+     	position: absolute;
+     	top: -7px;
+     	left: 208px;
+     }
+     .img-fixed {
+     	 background-color:  rgba(0,0,0,0.6);
+    width: 272px;
+    height: 34px;
+    position: absolute;
+    top: 155px;
+    padding: 0  0 0 10px;
+     }
+     .img-fixed ul li a {
+     	font-size: 15px;
+     	color: white
+     }
+     .img-fixed ul li:hover a {
+     	border-bottom: 1px solid white;
+     }
+     .img-fixed ul li {
+     	float: left;
+     	padding: 5px ;
+     	
+     }
+     .img-fixed ul li p {
+     	color: white;
+     	font-size: 12px;
+     	margin-left: 100px;
+     	 position: relative;top: -10px;
+     }
+     .bottom1 ul  li {
+     	float: left;
+     	margin-top: 5px;
+     }
+     .bottom1 ul li em {
+     	font-style: normal;
+    color: #c00;
+    font-size: 15px;
+    margin-left: 5px;
+     	/*margin-top: 10px;*/
+     }
+     .bottom2>div {
+     	float: left;
+     	
+     	text-align: center;
+     	margin-right: 20px;
+     	margin-top: 10px;
+     }
+     .bottom2>div>a {
+     	padding: 5px 10px;
+     	width: 70px;
+     	height: 20px;
+     	border: 1px solid #ddd;
+     	font-size: 12px;
+     	color: #333;
+     	line-height: 20px;
+     }
+     .bottom2>div:hover a {
+     
+     color: #c00
+     }
+     .bottom2>div>a:hover {
+     	border:1px solid #c00;
+     	width: 70px;
+     	height: 20px;
+     }
+	</style>     
+</head>
+<body>
+	<div class="head">
+		<div class="head-logo">
+		     <div class="nav">
+		     	<ul class="clearfix">
+			     	 <li class="world">
+			     	    <a href="">全国 </a>
+			     	     <ul class="child">
+				            <li ><a href="">全国</a></li>
+				            <li><a href="">北京</a></li>
+				            <li><a href="">上海</a></li>
+				            <li><a href="">广州</a></li>
+				            <li><a href="">深圳</a></li>
+				            <li><a href="">成都</a></li>
+				            <li><a href="">重庆</a></li>
+				            <li><a href="">天津</a></li>
+				            <li><a href="">武汉</a></li>
+				            <li><a href="">苏州</a></li>
+				            <li><a href="">杭州</a></li>
+				            <li><a href="">南京</a></li>
+				            <li><a href="">青岛</a></li>
+				            <li><a href="">长沙</a></li>
+				            <li><a href="">西安</a></li>
+				            <li><a href="">沈阳</a></li>
+				            <li><a href="">长春</a></li>
+				            <li><a href="">常州</a></li>
+				            <li><a href="">大连</a></li>
+				            <li><a href="">东莞</a></li>
+				            <li><a href="">海南</a></li>
+				            <li><a href="">济南</a></li>
+				            <li><a href="">三亚</a></li>
+				            <li><a href="">石家庄</a></li>
+				            <li><a href="">无锡</a></li>
+				            <li><a href="">郑州</a></li>
+				            <li><a href="">宁波</a></li>
+				            <li><a href="">南宁</a></li>
+				            <li><a href="">昆明</a></li>
+				            <li><a href="">合肥</a></li>
+				            <li><a href="">南昌</a></li>
+				            <li><a href="">香港</a></li>
+				            <li><a href="">海外</a></li>
+				            <li><a href="">全部658城市</a></li>
+				          </ul>
+			     	 </li>
+					 <li><a href="">首页</a></li>
+	                 <li>
+	                     <a href="">新房</a>
+	                     <ul class="children">
+				            <li><a href="">本月开盘</a></li>
+				            <li><a href="">热门楼盘</a></li>
+				            <li><a href="">新房房源</a></li>
+				            <li><a href="">房天下直销</a></li>
+				            <li><a href="">打折楼盘</a></li>
+				            <li><a href="">新开楼盘</a></li>
+				            <li><a href="">楼盘导购</a></li>
+				            <li><a href="">新房排行榜</a></li>
+				            <li><a href="">购房知识</a></li>
+				            <li><a href="">看房团</a></li>
+				            <li><a href="">商业地产</a></li>
+				            <button><a href="">帮你找房</a></button>
+         				 </ul>
+	                  </li>
+	                 <li>
+	                 		<a href="">二手房</a>
+	                 		<ul class="children">
+					            <li><a href="">在线房源</a></li>
+					            <li><a href="">优选房源</a></li>
+					            <li><a href="">房天下直销</a></li>
+					            <li><a href="">找小区</a></li>
+					            <li><a href="">找别墅</a></li>
+					            <li><a href="">查成交</a></li>
+					            <li><a href="">二手房排行榜</a></li>
+					            <li><a href="">购房知识</a></li>
+					            <button><a href="">我要卖房</a></button>
+					         </ul>
+					  </li>
+	                 <li>
+	                     <a href="">租房</a>
+	                     <ul class="children">
+				            <li><a href="">房天下精选</a></li>
+				            <li><a href="">个人房源</a></li>
+				            <li><a href="">整租房源</a></li>
+				            <li><a href="">合租房源</a></li>
+				            <li><a href="">别墅房源</a></li>
+				            <li><a href="">短租日租</a></li>
+				            <li><a href="">特价房</a></li>
+				            <li><a href="">租房知识</a></li>
+				            <li><a href="">求租</a></li>
+				            <button><a href="">免费发布出租</a></button>
+				         </ul>
+				      </li>
+	                 <li>
+	                    <a href="">查房价</a>
+	                    <ul class="children">
+				            <li><a href="">免费装修报价</a></li>
+				            <li><a href="">找装饰公司</a></li>
+				            <li><a href="">装修日记</a></li>
+				            <li><a href="">装修效果图</a></li>
+				            <li><a href="">装修攻略</a></li>
+				            <li><a href="">家居资讯</a></li>
+				            <button><a href="">帮你装修</a></button>
+         				</ul>
+                     </li>
+	                 <li>
+	                     <a href="">装修家具</a>
+	                     <ul class="children">
+				            <li><a href="">写字楼出租</a></li>
+				            <li><a href="">写字楼出售</a></li>
+				            <li><a href="">写字楼新盘</a></li>
+				         </ul>
+	                 </li>
+	                 <li>
+	                     <a href="">写字楼</a>
+					     <ul class="children">
+				            <li><a href="">写字楼出租</a></li>
+				            <li><a href="">写字楼出售</a></li>
+				            <li><a href="">写字楼新盘</a></li>
+				         </ul>
+	                  </li>
+	                 <li>
+	                     <a href="">商铺</a>
+				         <ul class="children">
+				            <li><a href="">商铺出租</a></li>
+				            <li><a href="">商铺出售</a></li>
+				            <li><a href="">商铺新盘</a></li>
+				         </ul>
+	                 </li>
+	                 <li>
+	                    <a href="">业主论坛</a>
+				        <ul class="children">
+				            <li><a href="">精华帖</a></li>
+				            <li><a href="">购房圈</a></li>
+				            <li><a href="">业主活动</a></li>
+				            <li><a href="">装修论坛</a></li>
+				         </ul>
+	                 </li>
+	                 <li>
+	                    <a href="">房产百科</a>
+	                    <ul class="children">
+				            <li><a href="">房产快讯</a></li>
+				            <li><a href="">房产问答</a></li>
+				            <li><a href="">房产知识</a></li>
+				            <li><a href="">房产圈</a></li>
+				        </ul>
+	                  </li>
+                     <li class="app">
+                        <a href="">移动App</a>
+                        <ul class="childrened">
+                        	<li><p>扫描二维码安装</p>
+                                <p>房天下APP</p>
+                                <img src="./images/erweima.jpg" alt="">
+                            </li>
+                            <li class="line"></li>
+                            <li>
+                            	<p>手机浏览器访问</p>
+					            <p>房天下</p>
+					            <img src="./images/fangm.jpg" alt="">
+                            </li>
+                        </ul>
+                      </li>
+                     <li>
+                         <a href="">更多</a>
+                         <ul class="children">
+				            <li><a href="">金融贷款</a></li>
+				            <li><a href="">产业</a></li>
+				            <li><a href="">海外房产</a></li>
+				            <li><a href="">文化活动频道</a></li>
+				         </ul>
+                     </li>
+			    </ul>
+		     </div>
+		     <div class="nav-bar"></div>
+		     <div class="nav-bar1"><a href="">看房</a></div>
+		     <div class="nav-bar2"></div>
+		     <div class="nav-bar1"><a href="">订单</a></div>
+		     <div class="nav">
+		     	<ul>
+		     		<li>
+		     			<a href="">登录</a>
+		     			<ul class="children">
+		     				<li><a href="">我的房天下</a></li>
+				            <li><a href="">搜房帮</a></li>
+				            <li><a href="">装修帮</a></li>
+		     			</ul>
+		     		</li>
+		     	</ul>
+		     	<div class="line1"></div>
+		     </div>
+		     <div class="nav1">
+		      <ul >
+		        <li><a href="">注册</a></li>
+		      </ul>	
+		     </div>
+		     <div>
+		     	<img src="./images/12377.jpg" alt="">
+		     </div>
+		</div>
+		<div class="center-head">
+			<div class="photo">
+			   <ul class="photo-img">
+					<li><img src="./images/1.jpg" alt=""></li>
+					<li class="hide"><img src="./images/2.jpg" alt=""></li>
+					<li class="hide"><img src="./images/3.jpg" alt=""></li>
+			    </ul>
+			  <ul class="icon">
+				<li class="selected"></li>
+				<li></li>
+				<li></li>
+			  </ul>
+			  <ul class="button">
+			  	<li class="left"></li>
+			  	<li class="right"></li>
+			  </ul>
+			  <div class="fix-div">
+			   <div class="fix clearfix">
+				   	<div><img src="./images/fang2.png" alt=""></div>
+				    <div><p>全国</p></div>
+				    <div><span>【<a href="">切换城市</a>】</span></div>
+			   </div>
+			  	<ul class="tab">
+			  		<li class="selected"><a href="">查房价</a></li>
+			        <li><a href="">买新房</a></li>
+			        <li><a href="">买二手房</a></li>
+			        <li><a href="">找租房</a></li>
+			        <li><a href="">装修家具</a></li>
+			        <li><a href="">房产快讯</a></li>
+			        <li><a href="">海外房产</a></li>
+			        <li><a href="">地图找房</a></li>
+
+        			<a class="menu-list">
+        			   更多<img class="s2" src="E:\作业3\images\3.png" alt="">
+        			   <ul class="menu hide">
+			            <li><a href="">房产快讯</a></li>
+			            <li><a href="">房产问答</a></li>
+			            <li><a href="">房产知识</a></li>
+			            <li><a href="">房产圈</a></li>
+			          </ul>
+        			</a>
+
+			  	  </ul>   
+			  	<div class="big-box ">
+			  		<div class="box">
+				  		<div class="box-name"><p>请输入小区名称或地址，给自己的房子估个价</p></div>
+				  		<div class="box-name hide"><p>请输入关键字(楼盘名/地名/开发商等)</p></div>
+				  		<div class="box-name hide "><p>请输入关键字(楼盘名或开发商)</p></div>
+				  		<div class="box-name hide"><p>请输入关键字(楼盘名或开发商)</p></div>
+				  		<div class="box-name hide"><p>请输入户型/功能间/风格等关键字</p></div>
+				  		<div class="box-name hide"><p>请输入关键字</p></div>
+				  		<div class="box-name hide"><p>请输入区县/商圈/小区名</p></div>
+			  	   </div>
+			  	    <div class="box-img"><a href=""><img src="./images/4.png" alt=""></a></div>
+			  	</div>
+			  	
+			  </div>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="content-head clearfix">
+			<div class="list clearfix">
+		        <div class="buy clearfix ">
+		          <a href="">买房</a>
+		        </div>
+		        <div class="buy-new">
+		           <ul >
+		              <li><a href="">新房</a></li>
+		              <li><a href="">新房房源</a></li>
+		            </ul>
+		        </div>
+		        <div class="buy-new">
+		            <ul> 
+		             <li><a href="">二手房</a></li>
+		              <li><a href="">业主论坛</a></li>
+		            </ul>
+		        </div>
+		        <div class="scan"></div>
+		      </div>
+		      <div class="list-one clearfix">
+		        <div class="buy clearfix ">
+		          <a href="">卖房</a>
+		        </div>
+		        <div class="buy-new">
+		           <ul >
+		              <li><a href="">我要卖房</a></li>
+		              <li><a href="">查房价</a></li>
+		            </ul>
+		        </div>
+		        <div class="scan"></div>
+		      </div>
+			<div class="list-one clearfix">
+		        <div class="buy clearfix ">
+		          <a href="">租房</a>
+		        </div>
+		        <div class="buy-new">
+		           <ul >
+		              <li><a href="">找租房</a></li>
+		              <li><a href="">我要出租</a></li>
+		            </ul>
+		        </div>
+		        <div class="buy-new">
+		            <ul> 
+		             <li><a href="">短租</a></li>
+		              <li><a href="">月付公寓</a></li>
+		            </ul>
+		        </div>
+		        <div class="scan"></div>
+		      </div>	
+			<div class="list-one clearfix">
+		        <div class="buy clearfix ">
+		          <a href="">装修</a>
+		        </div>
+		        <div class="buy-new">
+		           <ul >
+		              <li><a href="">装修案例</a></li>
+		              <li><a href="">找装饰公司</a></li>
+		            </ul>
+		        </div>
+		        <div class="buy-new">
+		            <ul> 
+		             <li><a href="">我要装修</a></li>
+		              <li><a href="">抢优惠</a></li>
+		            </ul>
+		        </div>
+		        <div class="scan"></div>
+		      </div>
+			<div class="list-one clearfix">
+		        <div class="buy clearfix ">
+		          <a href="">直销</a>
+		        </div>
+		        <div class="buy-new">
+		           <ul >
+		              <li><a href="">新房直销</a></li>
+		              <li><a href="">金融贷款</a></li>
+		            </ul>
+		        </div>
+		        <div class="buy-new">
+		            <ul> 
+		             <li class="selected"><a href="">二手房源</a></li>
+		              <li><a href="">我要加盟</a></li>
+		            </ul>
+		        </div>
+		      </div>		      	      
+		</div>
+		<div class="content-line"></div>
+		<div class="content-coustom">
+			<div class="tip clearfix">
+                <div class="tip-one select">
+                	<a href="">热销楼盘</a>
+                </div>
+                <div class="tip-one">
+                	<a href="">品牌地产</a>
+                </div>
+                <div class="tip-one">
+                	<a href="">全城好房</a>
+                </div>
+			</div>
+			<div class="tip-box">
+			   <div class="tip-img ">
+			      <div class="img">
+			   	   <div class="img1">
+					<img src="./images/5.jpg" alt="">
+					<div class="adv">
+						<p>广告 效果图</p>
+					</div>
+					<div class="img-fix">
+						<a href="">华润·萬橡府 </a>
+					</div>
+					<div class="base clearfix">
+						<div class="base-one">
+							<a href="">海淀</a>
+							<p>学府树北街</p>
+						</div>
+						<div class="base-two">
+							<h2>府学大宅</h2>
+							<p>建面185-295㎡</p>
+						</div>
+					</div>
+				   </div>
+				   <div class="img2">
+						<img src="./images/6.jpg" alt="">
+						<div class="adv">
+						    <p>广告 效果图</p>
+					    </div>
+					    <div class="img-fix">
+						   <a href="">中国铁建.花语金郡 </a>
+					    </div>
+					    <div class="base clearfix">
+							<div class="base-one">
+								<a href="">大兴</a>
+								<p>南海子公园西侧</p>
+							</div>
+						<div class="base-two">
+							<h2>墅质洋房</h2>
+							<p>建面145-160舒适三居</p>
+						</div>
+					    </div>
+				   </div>
+				   <div class="img3">
+						<img src="./images/7.jpg" alt="">
+						 <div class="base clearfix">
+							<div class="base-one">
+								<a href="">北苑</a>
+								<p>热门二手房</p>
+							</div>
+						    <div class="base-two">
+								<h2>1000万以上</h2>
+								<p>共313条房源</p>
+						    </div>
+					    </div>
+				   </div>
+				   <div class="img4">
+						<img src="./images/8.jpg" alt="">
+						 <div class="img-fix">
+						   <a href="">房天下家装狂欢节开幕 </a>
+					    </div>
+					    <div class="base clearfix">
+							<div class="base-one">
+								<a href="">红包等你来领</a>
+								<p>全国25城联动</p>
+							</div>
+						    <div class="base-two">
+								<h2>抽iPhone8</h2>
+								<p>赢10000元现金</p>
+						   </div>
+					    </div>
+				    </div>
+			      </div>
+			  </div>
+			<div class="tip-img hide ">
+				<div class="img">
+					<div class="img5">
+						<img src="./images/9.jpg" alt="">
+						<div class="advd">
+						  <p>广告 效果图</p>
+					   </div>
+					   <div class="img-fixed">
+					   	  <ul>
+					   	  	  <li><a href="">首开国风悦府</a></li>
+					   	  	  <li><p>745人报名</p></li>
+					   	  </ul>
+					   </div>
+					   <div class="bottom">
+					   	   <div class="bottom1 clearfix ">
+					   	   	   <ul>
+					   	   	   	  <li><b>14500元/㎡</b></li>
+					   	   	   	  <li><em>龙河高新技术开发区内</em></li>
+					   	   	   </ul>
+					   	   </div>
+					   	   <div class="bottom2 clearfix">
+					   	   	  <div >
+					   	   	  	 <a href="">小户型</a>
+					   	   	  </div>
+					   	   	  <div>
+					   	   	  	<a href="">六环以外</a>
+					   	   	  </div>
+					   	   	  <div>
+					   	   	  	<a href="">板楼</a>
+					   	   	  </div>
+					   	   </div>
+					   </div>
+					</div>
+					<div class="img6">
+						<img src="./images/10.jpg" alt="">
+						<div class="advd">
+						  <p>广告 效果图</p>
+					   </div>
+					   <div class="img-fixed">
+					   	  <ul>
+					   	  	  <li><a href="">金隅上城郡</a></li>
+					   	  	  <li><p>633人报名</p></li>
+					   	  </ul>
+					   </div>
+					     <div class="bottom">
+					   	   <div class="bottom1 clearfix ">
+					   	   	   <ul>
+					   	   	   	  <li><b>900万元/套</b></li>
+					   	   	   	  <li><em>联排叠拼</em></li>
+					   	   	   </ul>
+					   	   </div>
+					   	   <div class="bottom2 clearfix">
+					   	   	  <div >
+					   	   	  	 <a href="">品牌地产</a>
+					   	   	  </div>
+					   	   	  <div>
+					   	   	  	<a href="">特色别墅</a>
+					   	   	  </div>
+					   	   	  <div>
+					   	   	  	<a href="">现房</a>
+					   	   	  </div>
+					   	   </div>
+					   </div>
+					</div>
+					<div class="img7">
+						<img src="./images/11.jpg" alt="">
+						<div class="advd">
+						  <p>广告 效果图</p>
+					   </div>
+					   <div class="img-fixed">
+					   	  <ul>
+					   	  	  <li><a href="">顺泽'水榭花城</a></li>
+					   	  	  <li><p>2224人报名</p></li>
+					   	  </ul>
+					   </div>
+					     <div class="bottom">
+					   	   <div class="bottom1 clearfix ">
+					   	   	   <ul>
+					   	   	   	  <li><b>19700元/㎡</b></li>
+					   	   	   	  <li><em>建面55-90㎡智能美宅</em></li>
+					   	   	   </ul>
+					   	   </div>
+					   	   <div class="bottom2 clearfix">
+					   	   	  <div >
+					   	   	  	 <a href="">普通住宅</a>
+					   	   	  </div>
+					   	   	  <div>
+					   	   	  	<a href="">六环以外</a>
+					   	   	  </div>
+					   	   	  <div>
+					   	   	  	<a href="">板楼</a>
+					   	   	  </div>
+					   	   </div>
+					   </div>
+					</div >
+					<div class="img8">
+						<img src="./images/12.jpg" alt="">
+						<div class="advd">
+						  <p>广告 效果图</p>
+					   </div>
+					   <div class="img-fixed">
+					   	  <ul>
+					   	  	  <li><a href="">中海墅</a></li>
+					   	  	  <li><p>1579人报名</p></li>
+					   	  </ul>
+					   </div>
+					     <div class="bottom">
+					   	   <div class="bottom1 clearfix ">
+					   	   	   <ul>
+					   	   	   	  <li><b>60000元/㎡</b></li>
+					   	   	   	  <li><em>建面140-150平米通透三居</em></li>
+					   	   	   </ul>
+					   	   </div>
+					   	   <div class="bottom2 clearfix">
+					   	   	  <div >
+					   	   	  	 <a href="">瞰景平墅</a>
+					   	   	  </div>
+					   	   	  <div>
+					   	   	  	<a href="">中海钜献</a>
+					   	   	  </div>
+					   	   	  <div>
+					   	   	  	<a href="">公园地产</a>
+					   	   	  </div>
+					   	   </div>
+					   </div>
+					</div>
+				</div>	
+			</div>
+			<div class="tip-img hide ">
+				<div class="img">
+					<div class="img5">
+						<img src="./images/13.jpg" alt="">
+					   <div class="img-fixed">
+					   	  <ul>
+					   	  	  <li><a href="">华西山润别墅</a></li>
+					   	  	  <li><p>911人报名</p></li>
+					   	  </ul>
+					   </div>
+					   <div class="bottom">
+					   	   <div class="bottom1 clearfix ">
+					   	   	   <ul>
+					   	   	   	  <li><b>14500元/㎡</b></li>
+					   	   	   	  <li><em>龙河高新技术开发区内</em></li>
+					   	   	   </ul>
+					   	   </div>
+					   	   <div class="bottom2 clearfix">
+					   	   	  <div >
+					   	   	  	 <a href="">小户型</a>
+					   	   	  </div>
+					   	   	  <div>
+					   	   	  	<a href="">六环以外</a>
+					   	   	  </div>
+					   	   	  <div>
+					   	   	  	<a href="">板楼</a>
+					   	   	  </div>
+					   	   </div>
+					   </div>
+					</div>
+					<div class="img6">
+						<img src="./images/14.jpg" alt="">
+					   <div class="img-fixed">
+					   	  <ul>
+					   	  	  <li><a href="">城建万科城</a></li>
+					   	  	  <li><p>2252人报名</p></li>
+					   	  </ul>
+					   </div>
+					     <div class="bottom">
+					   	   <div class="bottom1 clearfix ">
+					   	   	   <ul>
+					   	   	   	  <li><b>900万元/套</b></li>
+					   	   	   	  <li><em>联排叠拼</em></li>
+					   	   	   </ul>
+					   	   </div>
+					   	   <div class="bottom2 clearfix">
+					   	   	  <div >
+					   	   	  	 <a href="">品牌地产</a>
+					   	   	  </div>
+					   	   	  <div>
+					   	   	  	<a href="">特色别墅</a>
+					   	   	  </div>
+					   	   	  <div>
+					   	   	  	<a href="">现房</a>
+					   	   	  </div>
+					   	   </div>
+					   </div>
+					</div>
+					<div class="img7">
+						<img src="./images/15.jpg" alt="">
+					   <div class="img-fixed">
+					   	  <ul>
+					   	  	  <li><a href="">华润西山别墅</a></li>
+					   	  	  <li><p>1012人报名</p></li>
+					   	  </ul>
+					   </div>
+					     <div class="bottom">
+					   	   <div class="bottom1 clearfix ">
+					   	   	   <ul>
+					   	   	   	  <li><b>19700元/㎡</b></li>
+					   	   	   	  <li><em>建面55-90㎡智能美宅</em></li>
+					   	   	   </ul>
+					   	   </div>
+					   	   <div class="bottom2 clearfix">
+					   	   	  <div >
+					   	   	  	 <a href="">普通住宅</a>
+					   	   	  </div>
+					   	   	  <div>
+					   	   	  	<a href="">六环以外</a>
+					   	   	  </div>
+					   	   	  <div>
+					   	   	  	<a href="">板楼</a>
+					   	   	  </div>
+					   	   </div>
+					   </div>
+					</div >
+					<div class="img8">
+						<img src="./images/16.jpg" alt="">
+						<div class="advd">
+						  <p>广告 效果图</p>
+					   </div>
+					   <div class="img-fixed">
+					   	  <ul>
+					   	  	  <li><a href="">泰禾·金尊府</a></li>
+					   	  	  <li><p>99人报名</p></li>
+					   	  </ul>
+					   </div>
+					     <div class="bottom">
+					   	   <div class="bottom1 clearfix ">
+					   	   	   <ul>
+					   	   	   	  <li><b>60000元/㎡</b></li>
+					   	   	   	  <li><em>建面140-150平米通透三居</em></li>
+					   	   	   </ul>
+					   	   </div>
+					   	   <div class="bottom2 clearfix">
+					   	   	  <div >
+					   	   	  	 <a href="">瞰景平墅</a>
+					   	   	  </div>
+					   	   	  <div>
+					   	   	  	<a href="">中海钜献</a>
+					   	   	  </div>
+					   	   	  <div>
+					   	   	  	<a href="">公园地产</a>
+					   	   	  </div>
+					   	   </div>
+					   </div>
+					</div>
+				</div>	
+			</div>
+		</div>
+		</div>
+	</div>
+	<script>
+	$(function(){
+	$(".app").mouseover(function(){
+          $(".childrened").show()
+        })
+        $(".app").mouseleave(function(){
+          $(".childrened").hide()
+        })
+        $(".menu-list").mouseover(function(){
+          $(".menu").show()
+        })
+        $(".menu-list").mouseleave(function(){
+          $(".menu").hide()
+        })
+        //轮播	
+        var nowIndex=$(".icon li .selected").index()
+        function goLeft(){
+          if(nowIndex==2){nowIndex=-1}
+            $(".icon li ").eq(nowIndex+=1).addClass("selected").siblings().removeClass("selected");
+  // console.log("removeClass")
+        $(".photo-img li").eq(nowIndex).fadeIn().siblings().fadeOut();
+          
+        }
+        function goRight(){
+          if(nowIndex==0){nowIndex=3}
+           $(".icon li").eq(nowIndex-=1).addClass("selected").siblings().removeClass("selected");
+         // console.log(index)
+         $(".photo-img li").eq(nowIndex).fadeIn().siblings().fadeOut();
+          
+        }
+        $(".left").click(function(){
+          goLeft();
+          console.log(nowIndex)
+        })
+        $(".right").click(function(){
+          goRight()
+        })
+        function exportTimer(){
+          timer=setInterval(function(){
+            goLeft();
+          },20000000);
+        }
+        exportTimer();
+        $(".left").hover(
+          function(){
+            clearInterval(timer)
+          },
+          function(){
+            exportTimer()
+          })
+        $(".right").hover(
+          function(){
+            clearInterval(timer)
+          },
+          function(){
+            exportTimer()
+          })
+     //显现卡
+     $(".icon li ").mouseover(function(){
+     	$(this).addClass("selected").siblings().removeClass("selected")
+     	var index=$(this).index()
+     	$(".photo-img li").eq(index).fadeIn().siblings().fadeOut()
+
+     })
+     $(".tab>li").mouseover(function(){
+     	$(this).addClass("selected").siblings().removeClass("selected")
+     	var index=$(this).index()
+     	$(".box-name").eq(index).show().siblings().hide()
+     })
+	})
+	$(".tip-one").mouseover(function(){
+		$(this).addClass("select").siblings().removeClass("select")
+		var index=$(this).index()
+		$(".tip-img").eq(index).show().siblings().hide()
+	})
+	</script>
+</body>
+</html>

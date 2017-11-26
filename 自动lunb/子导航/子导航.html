@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./js/jquery-3.2.0.min.js"></script>
+	<style>
+	html,body,ul,li {
+		padding: 0;
+		margin: 0;
+	}
+	   a {
+	   	text-decoration: none;
+	   }
+	   ul {
+	   	list-style: none;
+	   }
+	   .out-box>li>a, .in-box>li {
+	   	text-align: center;
+	   	width: 300px;
+	   		   	line-height: 50px;
+	   	font-size: 20px;
+	   	display: block;
+	   }
+	   .out-box>li>a {
+	   	background: gray;
+	   }
+	   .out-box>li>a:hover {
+	   	background: white;
+	   }
+	   .in-box>li {
+	   	background: #c00;
+	   }
+	   .in-box>li:hover {
+	   	background: pink;
+	   }
+	   .hide {
+	   	display: none;
+	   }
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul class="out-box">
+			<li>
+			   <a href="#">1</a>
+			   <ul class="in-box hide">
+			   	  <li>1</li>
+			   	  <li>1</li>
+			   	  <li>1</li>
+			   	  <li>1</li>
+			   </ul>
+			 </li>
+			 <li>
+			   <a href="#">2</a>
+			   <ul class="in-box hide">
+			   	  <li>1</li>
+			   	  <li>1</li>
+			   	  <li>1</li>
+			   	  <li>1</li>
+			   </ul>
+			 </li>
+			 <li>
+			   <a href="#">3</a>
+			   <ul class="in-box hide">
+			   	  <li>1</li>
+			   	  <li>1</li>
+			   	  <li>1</li>
+			   	  <li>1</li>
+			   </ul>
+			 </li>
+		</ul>
+	</div>
+	<script>
+	   $(function(){
+	   	$(".out-box>li>a").click(function(){
+             $(".in-box").hide();
+               $(this).siblings(".in-box").show();
+	   	})
+	   })
+	</script>
+</body>
+</html>

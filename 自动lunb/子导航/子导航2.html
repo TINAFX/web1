@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-3.2.0.min.js"></script>
+    <style>
+        html,body,ul,li {
+            margin: 0;
+            padding: 0;
+        }
+        ul li {
+            list-style: none;
+        }
+        .clearfix::after {
+            height: 0;
+            content: "";
+            display: block;
+            clear: both;
+        }
+        ul.out-box {
+            width: 200px;
+            margin: 0 auto;
+        }
+        ul.out-box li>a {
+            background-color: #dddddd;
+        }
+        ul.out-box li>a:hover {
+            background-color: #FAFAFA;
+        }
+        .in-bar {
+            display: none;
+        }
+        .in-bar li {
+            background-color: #f00;
+        }
+        .in-bar li:hover {
+            background-color: blue;
+        }
+        ul.out-box li>a,.in-bar li {
+            width: 200px;
+            height: 30px;
+            text-decoration: none;
+            color: #000000;
+            line-height: 30px;
+            text-align: center;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <ul class="out-box">
+        <li>
+            <a href="javascript:void(0)">1</a>
+            <ul class="in-bar">
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0)">2</a>
+            <ul class="in-bar">
+                <li>2</li>
+                <li>2</li>
+                <li>2</li>
+                <li>2</li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0)">3</a>
+            <ul class="in-bar">
+                <li>3</li>
+                <li>3</li>
+                <li>3</li>
+                <li>3</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        $(function(){
+            $("ul.out-box li>a").click(function(){
+//                $(".in-bar").hide();
+//                $(this).siblings(".in-bar").show();
+                $(this).siblings().show().parent("li").siblings().children(".in-bar").hide();
+            })
+        })
+    </script>
+</body>
+</html>

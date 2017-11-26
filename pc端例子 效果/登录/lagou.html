@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	    <script src="./js/jquery-3.2.0.min.js"></script>
+	<style>
+	html,body, ul,li ，a{
+		padding: 0;
+		margin: 0
+	}
+	a {
+		text-decoration: none;
+	}
+	ul {
+		list-style: none;
+	}
+  .top {
+  	height: 360px;
+  	width: 100%;
+    background-color: #00b38a;
+  }
+  .img  {
+  	width: 10px;
+  	/*background: url("./images/logo.png");*/
+  /*	height: 20px;
+  	width: 20px;*/
+  	position: absolute;
+  	top: 100px;
+  	left: 30%;
+  	z-index: 4
+  }
+  .img img {
+  	width: 90px;
+  	height: 40px;
+  }
+  .middle {
+  	width: 552px;
+  	height: 300px;
+  	background: white;
+  	position: absolute;
+  	top: 170px;
+  	left: 440px;
+  	z-index: 5;
+  	padding:60px;
+  }
+  .tip ul li{
+  	padding: 0 60px 0 0;
+  	float: left;
+  }
+  .tip ul li a {
+  	color: #333;
+  	font-size: 18px;
+  }
+  .tip ul li.selected a {
+  	color: #00b38a;
+  }
+  .clearfix::after {
+  	clear: both;
+  	display: block;
+  	content: "";
+  	height: 0;
+  }
+  /*.box {
+  	margin-top: 30px;
+  }
+*/
+  .box p {
+  	margin-top: 30px;
+  	color:#b7adad;
+  	font-size: 15px;
+  	line-height: 15px;
+
+  }
+  .line {
+  	border: 0.8px solid #f9e8e8;
+  	height: 20px;
+  	width: 300px;
+
+  }
+  .password {
+  	margin-top: 20px;
+  }
+  .password a {
+  	color: #00b38a;
+  	font-size: 15px;
+  	
+  	margin-left: 250px;
+  }
+  .land {
+  	border: 1px solid #00b38a;
+  	width: 290px;
+  	height: 46px;
+  	background: #00b38a;
+  	text-align: center;
+  	margin-top: 20px;
+  }
+  .land a {
+  	line-height: 46px;
+    color: white;
+    font-size: 20px;
+  }
+  .middle>div {
+  	float: left;
+  }
+  .left {
+  	width: 340px;
+
+  }
+  .line2 {
+  	border: 1px dashed #f9e8e8;
+  	height: 150px;
+  	width: 0;
+
+  }
+    .line3 {
+  	border: 1px dashed #f9e8e8;
+  	height: 150px;
+  	width: 0;
+  	position: relative;top: 125px;
+
+  }
+  .line2 p {
+  	position: relative;
+  	top: 135px;
+  	right: 7px;
+  	color: #d8d8d8;
+  }
+  .right {
+  	
+  	width: 200px;
+  	height: 77px;
+  	position: relative;
+  	left: 50px;
+  	top: 80px;
+  }
+  .right-tip p {
+        font-size: 15px;
+        color: #777;
+  }
+  .right-tip a {
+  	font-size: 18px;
+  	color: #00b38a;
+  	position: relative;top: -3px;
+  }
+  .box  {
+ 
+  	margin-top: 20px 
+    
+  }
+  
+  .box-name {
+  	border: none;
+  	border-bottom: 1px solid  #f9e8e8;
+  	width: 290px;
+  	line-height: 46px;
+  	outline: none;
+
+
+  }
+  .box-password {
+  	outline: none;
+  	 	border: none;
+  	border-bottom: 1px solid  #f9e8e8;
+  	width: 290px;
+  	line-height: 46px;
+  }
+  .right-land p {
+  	color: #333;
+  	font-size: 14px;
+  	margin-top: 30px;
+  }
+  .img img{
+  	width:20px;
+  	height: 10px;
+  }
+  .img:hover{
+
+  background: url(./images/2.png);
+  }
+	</style>
+</head>
+<body>
+	<div class="top">
+		<div class="img">
+			<img src="./images/logo.png" alt="">
+		</div>
+	</div>
+	<div class="middle clearfix">
+		<div class="left">
+			<div class="tip clearfix">
+				<ul>
+					<li class="selected"><a href="">密码登录</a></li>
+					<li><a href="">验证码登录</a></li>
+				</ul>
+			</div>
+			<div class="box">
+			<input   type="text" class="box-name" placeholder="请输入常用手机号/邮箱" name="username">
+		
+            <input type="password" class="box-password" placeholder="请输入密码" name="password">
+				
+			<!-- 	<div class="line">
+					<div><input type="text" value="" name="username">
+					<p>请输入常用手机号/邮箱</p></div>
+				</div>
+					<div><p>请输入密码</p></div>
+				<div class="line"></div> -->
+				<div class="password">
+					<a href="">忘记密码？</a>
+				</div>
+				<div class="land">
+					<a href="">登录</a>
+				</div>
+			</div>
+		</div>
+		<div class="line2">
+			<p>or</p>
+			<div class="line3"></div>
+		</div>
+		<div class="right">
+			<div class="right-tip">
+				<p>还没有注册</p>
+				<a href="">立即注册</a>
+				<span><img src="./images/111.png" alt=""></span>
+			</div>
+			<div class="right-land">
+				<p>使用以下账号直接登录</p>
+				<ul>
+					<li class="img"><img src="./images/2.1.png" alt=""></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+	    $(function(){
+	    	$(".land").click(function(){
+	    		var username="fengxin";
+	    		var password="123456"
+	    		var enterUserName = $("input[name='username']").val();
+                var enterPassword = $("input[name='password']").val();
+                console.log(enterUserName )
+                  if(enterUserName == username && enterPassword == password){
+                    alert("登录成功！");
+                    location.href="http://www.baidu.com";
+                    // console.log(location.href)
+                }else {
+                    alert("登陆失败！");
+                }
+	    	})
+	    })
+	</script>
+</body>
+</html>

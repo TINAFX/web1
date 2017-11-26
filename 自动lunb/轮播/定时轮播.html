@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul,li {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .clearfix::after {
+            clear: both;
+            display: block;
+            content: "";
+            height: 0;
+        }
+        .img-box  {
+            list-style: none;
+            /*width: 1500px;*/
+            /*margin-left: -300px;*/
+        }
+        .img-box>li, .img-box>li>img {
+            width: 300px;
+            height: 300px;
+        }
+        .img-box>li {
+            float: left;
+            line-height: 300px;
+            text-align: center;
+            font-size: 30px;
+            position: absolute;
+        }
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .left {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .right {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .icon {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            left: 50px;
+        }
+        .icon li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #000;
+            margin: 0 10px;
+        }
+        .icon li.selected {
+            background: red;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+    <script src="./js/jquery-3.2.0.min.js"></script>
+</head>
+<body>
+    <div class="box">
+        <ul class="img-box clearfix">
+            <li><img src="./images/banner.jpg" alt=""></li>
+            <li class="hide"><img src="./images/head_logo.jpg" alt=""></li>
+            <li class="hide"><img src="./images/newgif.gif" alt=""></li>
+            <li class="hide"><img src="./images/top-img.png" alt=""></li>
+            <li class="hide"><img src="./images/head_logo.jpg" alt=""></li>
+        </ul>
+        <ul class="icon">
+            <li class="selected"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <button class="left">向左移动</button>
+        <button class="right">向右移动</button>
+    </div>
+    <script>
+        $(function(){
+            var nowIndex = $(".icon li.selected").index();
+            //左侧点击事件
+            function goLeft(){
+                if(nowIndex == 4) { nowIndex = -1; }
+                $(".icon li").eq(nowIndex+=1).addClass("selected").siblings().removeClass("selected");
+                $(".img-box li").eq(nowIndex).fadeIn().siblings().fadeOut();
+            }
+            //右侧点击事件
+            function goRight(){
+                if(nowIndex == 0) { nowIndex = 5; }
+                $(".icon li").eq(nowIndex-=1).addClass("selected").siblings().removeClass("selected");
+                $(".img-box li").eq(nowIndex).stop(true,true).fadeIn().siblings().fadeOut();
+            }
+
+            //左侧点击
+            $(".left").click(function(){
+                goLeft()
+            })
+
+            //右侧点击
+            $(".right").click(function(){
+                goRight()
+            })
+
+            //定时器方法
+            function exportTimer(){
+                timer = setInterval(function(){
+                    goLeft();
+                },2000);
+            }
+            //第一次执行定时器
+            exportTimer();
+
+            //左侧触碰停止及开始定时器
+            $(".left").hover(
+                function(){
+                    clearInterval(timer)
+                },
+                function(){
+                    exportTimer();
+                }
+            )
+
+            //右侧触碰停止及开始定时器
+            $(".right").hover(
+                function(){
+                    clearInterval(timer)
+                },
+                function(){
+                    exportTimer();
+                }
+            )
+        })
+    </script>
+</body>
+</html>

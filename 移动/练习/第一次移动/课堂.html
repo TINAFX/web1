@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width,user-sclabale=no,initial-scale=1.0,maxium-scale=1.0, minium-scale=1.0">
+	<title>Document</title>
+	<style>
+	     html,body {
+	     	font-size: 62.5%
+	     }
+	     html,body,p,h2,h3,h5,span{
+	     	margin: 0;
+	     	padding: 0;
+	     }
+	      a {
+	      	text-decoration: none;
+	      }
+	      ul {
+	      	list-style: none;
+	      }
+	     
+	     .head {
+	     	padding: 0 15px;
+	     }
+	      .logo {
+	      	padding: 17px 0 0 0;
+	      }
+	     .logo h2 {
+			line-height: 3.72rem;
+	     	color: #323232 ;
+	     	font-size: 2.3rem;
+	     	font-weight: normal;
+	     }
+	     .author {
+	     /*	position: relative;*/
+	     	margin-top: 2.3rem;
+	     }
+	     .author>div {
+             float: left;
+	     }
+	     .people img {
+	     	/*position: absolute;*/
+          	width: 4rem;
+          	height: 4rem;
+          	border-radius: 100%;
+          }
+          .people-name b {
+          	color: #323232 ;
+          	font-size: 1.5rem;
+          	line-height: 2.1rem;
+          	/*margin-left: 0.8rem;*/
+          }
+          .people-name p, .people-name span{
+          	color: #999999;
+          	font-size: 1.2rem;
+          	line-height: 1.7rem;
+
+          	/*margin-left: 0.9rem;*/
+          }
+          .people-img {
+             border: 1.2px solid #39D167;
+             border-radius: 5%;
+             width: 5.6rem;
+             height: 2.4rem;
+             margin-right: 1.5rem;
+             position: absolute;right: 0;
+          }
+          .people-img>div {
+          	float: left;
+          	
+          }
+          .bar {
+          	margin :0.3rem 0.5rem;
+          	width: 1.1rem;
+          	height: 1.1rem;
+          	color:#39D167;
+
+          }
+          .bar-1 {
+          	margin :0rem 0.5rem;
+          	font-size: 1.4rem;
+          	line-height: 2rem;
+          	color:#39D167;
+          }
+          .clearfix::after {
+          	clear: both;
+          	display: block;
+          	content: "";
+          	height: 0;
+          }
+          .content {
+          	padding:  0 1.5rem;
+          }
+          .content1 p {
+          	color:#666666 100%;
+          	font-size: 1.5rem;
+          	line-height: 2.43rem;
+          	text-align: justify;
+          }
+          .content-img {
+          	padding: 1.5rem 0 0 0;
+          }
+          .content-img img {
+          	width: 100%;
+          }
+          .content2 h5 {
+          	font-size: 1.5rem;
+          	color:#666666 100%;
+            margin-top: 16px;
+          }
+          .content p {
+          	font-size: 1.5rem;
+          	color: #666666;
+          	margin-top: 1.1rem;
+          	text-align: justify;
+          }
+          .content3 p{
+          	font-size: 1.5rem;
+          	font-size: #666666;
+          	margin-top: 0.5rem;
+          	line-height: 2.43rem;
+          }
+          .content4 p{
+          	font-size: 1.5rem;
+          	line-height: 1.5rem;
+          }
+          .bottom {
+          	padding: 3rem 0 0 1.5rem;
+          	position: relative;
+          }
+
+          .bottom>div {
+          	float: left;
+          }
+          .bottom img {
+          	width: 8rem;
+          	height: 3.6rem;
+          }
+          .zixun {
+          	position: absolute;
+          	right: 1.5rem;
+
+
+          }
+          .song {
+          	position: absolute;
+          	left: 37%;
+          }
+          .state {
+          	margin: 2rem 1.5rem 0 1.5rem;
+          }
+          .state>div{
+          	float: left;
+          }
+          .line{
+          	
+          	border: 1px solid #D8D8D8 100%;
+          	height:8.3rem;
+          	width: 0.3rem;
+          	background: #D8D8D8 100%
+          }
+          .state-con {
+          	margin-left: 0.5rem;
+          	border: 1px solid #FAFAFA 100%;
+          	background:#FAFAFA 100%;
+          	height: 8.3rem;
+          	width: 97%;
+          }
+          .state-con p {
+          	padding: 2rem 1.1rem 2rem 1rem;
+          	font-size: 1.4rem;
+          	line-height: 2.13rem;
+          	 color: #999999 100%
+          }
+          .state-con a {
+          	font-size: 1.4rem;
+          	line-height: 2.13rem;
+          	color: #39D167;
+          }
+          .discuss-title {
+            position: relative;
+            top: 1.5rem;
+            padding: 1.5rem;
+            font-size: 1.5rem;
+            border-bottom: 1px solid #e7e7e7;
+        }
+        .discuss-item {
+            position: relative;
+            padding: 2.5rem 1.5rem 1.5rem 7rem;
+            border-bottom: 1px solid #e7e7e7;
+        }
+        .discuss-item img {
+            position: absolute;
+            left: 1.5rem;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 100%;
+        }
+        .username {
+            font-size: 1.4rem;
+            color: #666;
+        }
+        .time {
+            font-size: 1.2rem;
+            color: #c2c2c2;
+            margin-bottom: 0.7rem;
+        }
+        .discuss-content {
+            font-size: 1.5rem;
+            color: #323232;
+        }
+	</style>
+</head>
+<body>
+	<div class="head">
+		<div class="logo">
+			<h2>宝宝上火有误区 学会四招巧防治</h2>
+		</div>
+		<div class="author clearfix ">
+			<div class="people">
+				<img src="./images/people.png" alt="">
+			</div>
+			<div class="people-name">
+				<b>吕雪莲</b>
+				<span>妇科 主治医师</span>
+				<p>2017-5-16 16:24:50</p>
+			</div>
+        <div class="people-img clearfix">
+           <div class="bar">
+           	  <a>+</a>
+           </div>
+           <div class="bar-1">
+           	  <a>关注</a>
+           </div>
+        </div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="content1">
+			<p>宝宝早上起来就喝白开水，这样就可以补充晚上丢失的水分，清理肠道，排出废物，唤醒消化系统整体地机能和恢复，清洁口腔</p>
+		</div>
+		<div class="content-img">
+			<img src="./images/8.png" alt="">
+		</div>
+		<div class="content1">
+			<p>宝宝上火是一种常见疾病。那么对于家长朋友来说，对于宝宝上火有哪些认识的误区呢</p>
+		</div>
+		<div class="content2">
+			<h5>宝宝上火有哪些认识的误区</h5>
+			<p>1、拖延用药危害大</p>
+		</div>
+		<div class="content3">
+		    <p >很多妈妈认为，宝宝上火很常见，并不要紧，身体自行调节一下，就自然会好的，其实这种想法是错误的。还有一些妈妈认为，是药三分毒，所以对药敬而远之，不能宝宝一上火就吃药.<br/>
+		    许多宝宝就是了对“上火症状的治疗,导致了病情的恶化，专家指出，父母这种不重视治疗，拖延用药的做法，和容易导致宝宝抵抗力降低，“上火”是体内潜伏的因素，容易造成体内炎症，容易引发感冒，扁桃体炎，腮腺炎等症状，宝宝“上火”问题不能掉以轻心，一定要得到及时的治疗</p>
+		     
+		</div>
+		<div class="content2">
+			
+			<p>2、滥用成人药物伤害大</p>
+		</div>
+		<div class="content3">
+		    <p >很多妈妈认为，宝宝上火很常见，并不要紧，身体自行调节一下，就自然会好的，其实这种想法是错误的。还有一些妈妈认为，是药三分毒，所以对药敬而远之，不能宝宝一上火就吃药.<br/>
+		    许多宝宝就是了对“上火症状的治疗,导致了病情的恶化，专家指出，父母这种不重视治疗，拖延用药的做法，和容易导致宝宝抵抗力降低，“上火”是体内潜伏的因素，容易造成体内炎症，容易引发感冒，扁桃体炎，腮腺炎等症状，宝宝“上火”问题不能掉以轻心，一定要得到及时的治疗</p>
+		     
+		</div>
+        <div class="content4">
+        	<p>2623阅读</p>
+        </div>
+        
+	</div>
+	<div class="bottom clearfix" >
+		<div class="zan">
+			<img src="./images/Group 19@2x.png" alt="">
+		</div>
+		<div class="song">
+			<img src="./images/Group 19@2x.png" alt="">
+		</div>
+		<div class="zixun">
+			<img src="./images/Group 19@2x.png" alt="">
+		</div>
+	</div>
+	<div class="state">
+		<div class="line"></div>
+		<div class="state-con">
+			<p>声明:任何有关疾病的建议都不能代替职业医生的建议.版权问题请点击查看：<span><a href="">说明</a></span></p>
+		</div>
+	</div>
+  <div class="discuss-title">
+        评论 <span>736</span>
+    </div>
+    <div class="discuss-list">
+        <div class="discuss-item">
+            <img src="./images/28.png" alt="">
+            <div class="item-right">
+                <p class="username">可爱的小鲍鱼，哼哼</p>
+                <p class="time">2017.8.19</p>
+                <p class="discuss-content">其实对于糖尿病大家都觉得很恐怖，根部不用怕，得了之后就等着医生治疗</p>
+            </div>
+        </div>
+        <div class="discuss-item">
+            <img src="./images/28.png" alt="">
+            <div class="item-right">
+                <p class="username">可爱的小鲍鱼，哼哼</p>
+                <p class="time">2017.8.19</p>
+                <p class="discuss-content">其实对于糖尿病大家都觉得很恐怖，根部不用怕，得了之后就等着医生治疗</p>
+            </div>
+        </div>
+        <div class="discuss-item">
+            <img src="./images/28.png" alt="">
+            <div class="item-right">
+                <p class="username">可爱的小鲍鱼，哼哼</p>
+                <p class="time">2017.8.19</p>
+                <p class="discuss-content">其实对于糖尿病大家都觉得很恐怖，根部不用怕，得了之后就等着医生治疗</p>
+            </div>
+        </div>
+    </div>
+	
+</body>
+</html>

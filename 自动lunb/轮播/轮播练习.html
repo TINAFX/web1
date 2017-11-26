@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./js/jquery-3.2.0.min.js"></script>
+	<style>
+	body,html ,ul ,li,img {
+		margin: 0;
+		padding: 0;
+	}
+	   a {
+	   	text-decoration: none;
+	   }
+	   ul {
+	   	list-style: none;
+	   }
+	   .tab img {/*
+        margin-top: -200px;*/
+	   	width: 200px;
+	   	height: 200px;
+	   }
+	   .tab  {
+	   	/*border: 1px solid red;*/
+	   	overflow: hidden;
+        /*margin-top: -200px;*/
+	   	width: 200px;
+	   	height: 200px;
+	   }
+	   .hide {
+         display: none;
+	   }
+	   .box >div {
+	   	float: left;
+	   }
+	   .icon li {
+	   	/*position: relative;*/
+	   	border: 1px solid red;
+	   	width: 75px;
+	   	height: 65px;
+	   	text-align: center;
+	   }
+	   .icon li a {
+	   	font-size: 16px;
+	   	line-height:65px;
+	   	color: black;
+	   }
+	</style>
+</head>
+<body>
+<div class="box">
+<div class="tab-box">
+<ul class="tab">
+		<li >
+		<img src="./images/banner.jpg" alt="">
+	</li>
+	<li >
+		<img src="./images/head-logo.jpg" alt="">
+	</li>
+	<li >
+		<img src="./images/banner.jpg" alt="">
+	</li>
+</ul>
+
+</div>
+	<div class="icon">
+	   <ul>
+		<li><a href="">1</a></li>
+		<li ><a href="">2</a></li>
+		<li><a href="">3</a></li>
+	   </ul>
+	</div>
+</div>
+	<script>
+	 $(function(){
+     
+     $(".icon ul li").click(function(){
+     	// alert(1)
+     	var index=$(this).index();
+     	if(index==0){
+             
+     		$(".tab-box ul").animate({"margin-top":"0"},500);
+     	};
+     	if(index==1){
+     		$(".tab-box ul ").stop().animate({"margin-top":"-200px"},500);
+     		alert(1)
+     		// console.log($(".tab-box ul ").animate({"margin-top":"-200px"},500))
+     	};
+     	if(index==2){
+     		$(".tab-box ul").animate({"margin-top":"-400px"},500);
+     	};
+     	
+     	console.log(index)
+	 });
+	 })
+	</script>
+</body>
+</html>

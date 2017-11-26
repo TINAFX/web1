@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+	<style type="text/css">
+	html ,body, ul ,img，a {
+		padding: 0;
+		margin: 0;
+	}
+	       ul {
+	       	list-style: none;
+	       }
+	       a {
+	       	text-decoration: none;
+	       }
+	       .top>div {
+	       	float: left;
+	       }
+	       .top {
+	       	border:1px  solid #d21212;
+	       /*	height: 50px;*/
+	       	width: auto;
+	       	background-color: #d21212;
+	       }
+	       .left {
+	       	margin-left: 70px;
+	       }
+       .left ul li {
+       	float: left;
+        padding: 10px;
+       }
+       .left ul li a {
+       	color: white;
+       	line-height: 50px;
+       	font-size: 15px;
+       	font-weight: bold;
+       }
+       .left ul li:hover {
+       	background-color: #7f0000;
+       	line-height: 50px;
+       }
+        .city {
+        	width: 480px;
+        	float: left;
+        	background-color: white;
+        	display: none;
+        	position: relative; 
+          top:-940px;
+          left: 80px;
+        	/*margin-left: 80px;*/
+        /*  background-image: url(E:\作业3\images\1.png);	*/
+          /*padding: 10px 30px 10px 10px;*/
+        }
+        .city ul li{
+        	float: left;
+          padding: 10px;
+          
+        }
+        .city ul li a {
+          color: #666;
+          font-size: 12px;
+          text-align: left;
+        /* background: url(E:\作业3\images\1.png);*/
+        }
+        .city ul li :hover a {
+          color: red;
+        }
+        .new {
+           position: relative; 
+          top:-940px;
+          left: 190px;
+        }
+        .old-house {
+          position: relative;
+          top: -940px;
+          left:240px;
+        }
+        .rent-room {
+          position: relative;
+          top: -940px;
+          left: 300px;
+        }
+        .one {
+          position: relative;
+          top: -940px;
+          left: 420px;
+        }
+        .two {
+          position: relative;
+          top: -940px;
+          left: 490px;
+        }
+        .three {
+          position: relative;
+          top: -940px;
+          left: 560px;
+        }
+        .four {
+          position: relative;
+          top: -940px;
+          left: 620px;
+        }
+         .five {
+          position: relative;
+          top: -940px;
+          left: 700px;
+        }
+        .seven {
+          position: relative;
+          top: -940px;
+          left: 850px;
+        }
+        .eight {
+          position: relative;
+          top: -940px;
+          left: 1050px;
+        }
+        .new, .old-house, .two, .three, .four, .five, .seven, .eight
+        {
+          width: 120px;
+          background-color: white;
+          display: none;
+        }
+        .rent-room, .one {
+           width: 120px;
+          background-color: white;
+          display: none;
+        }
+         .eight ul li a,.seven ul li a,.rent-room ul li a, .old-house ul li a, .new ul li a, .one ul li a , .two ul li a, .three ul li a, .four ul li a , .five ul li a  {
+          color: #666;
+          font-size: 12px;
+          margin-left: 10px;
+          line-height: 25px;
+        }
+        .old-house button, .rent-room button, .new button,
+        .one button, .two button{
+          background-color: #c00;
+        
+          margin: 5px 10px;
+          padding: 10px 20px;
+          border-radius: 10%;
+        }
+       .one button a,.two button a,.old-house button a, .rent-room button a,
+        .new button a  {
+          font-size: 12px;
+           color: white;
+           font-weight: bold;
+        }
+        .six>div {
+          float: left;;
+        }
+        .six{
+          width: 220px;
+          background-color: white;
+          text-align: center;
+          position: relative;
+          top: -940px;
+          left: 790px;
+          display: none;
+        }
+        .six1 {
+          margin-left: 10px;
+        }
+        .six p {
+          font-size: 12px;
+        }
+
+        .six1 img {
+
+           width:98px;
+           height: 98px;
+        }
+       .left-one {
+       	margin-left: 8px;
+       }
+       .left-one ul li {
+       	float: left;
+       	line-height: 50px;
+       	padding: 8px;
+       }
+       .left-one ul li a {
+       	color:white;
+       	font-size: 15px;
+       }
+       .left-one img {
+       	position: relative;
+       	top: 5px
+       }
+       .land {
+       padding: 22px 8px;
+
+       }
+       .land a {
+       	color: white;
+       	font-size: 15px;
+       
+       }
+       .land  :hover {
+       	background-color:#7f0000;
+        padding: 22px 0;
+       }
+       .line {
+       	height: 18px;
+       	width: 1px;
+       	background-color: white;
+       	margin:25px 0;
+       }
+       .log {
+         padding: 22px 8px;
+       }
+       .log  a{
+       	color: white;
+       	font-size: 15px;
+       }
+       .log:hover {
+       	 	background-color:#7f0000;
+       }
+       .adv {
+        float: left;
+        position: relative;
+        top: 15px;
+        left: 10px;
+       /*	margin: 15px 0 10px 5px;*/
+       }
+      /* .photo img {
+        position: relative;
+        top: -5px;
+        left: -400px;
+       overflow: hidden;
+       }*/
+       .photo {
+            position: relative;
+            width: 100%;
+            height: 464px;
+            overflow: hidden;
+       }
+        .photo-img img {
+            height: 464px;
+            width: 2000px;
+            position: absolute;
+            left: 50%;
+            margin-left: -1000px;
+            /*z-index: 1;*/
+        }
+       .house {
+        width: 760px;
+        background: #0e0d21;
+        height: 230px;
+       position: relative;
+       top:-360px;
+       left: 280px;
+       }
+       .adv-house {
+        
+           position: relative;
+           top: 30px;
+           left: 20px;
+       }
+       .adv-house span {
+        color: white;
+        font-size: 15px;
+        position: relative;
+        top: -15px
+       }
+       .adv-house span a {
+        color: white;
+       }
+       .adv-house  :hover a {
+        border-bottom: 1px solid white;
+       }
+       .s {
+        margin: 50px 0 0 20px;
+       }
+      .s ul li {
+        float: left;
+        padding: 0 25px 0 0
+      } 
+      .s1  a {
+        color: white;
+      }
+      .s1  li :hover {
+        background-color: red;
+        padding: 10px 0;
+        border-radius: 10%
+      }
+      .s1 ul li :nth-child(1){
+        background-color: red;
+      }
+      .s3 {
+        width: 120px;
+        height: 180px;
+        background-color: white;
+        position: relative;
+        top: -700px;
+        left: 960px;
+        display: none;
+      }
+       .s3  a {
+        color: #333;
+        font-size: 13px;
+        margin: 10px;
+        line-height: 25px;
+      }
+      .s3 a:hover {
+        color: red
+        
+      }
+      .s4 {
+        width: 660px;
+        height: 40px;
+        background-color: white;
+        margin-top: 10px;
+    /*    position: relative;
+        top: 280px*/;
+      /*  text-align: left;
+        color: #333;*/
+      }
+      .s4 p {
+        color: #333;
+        font-size: 13px;
+        padding:10px 5px;
+
+      }
+      .s6  {
+        position: relative;
+        top: -41px;
+        left: 660px;
+        }
+        .list>div {
+          float: left;
+        }
+        .list {
+          position: relative;
+          top: -200px;
+        }
+        .list1>div {
+          float: left;
+        }
+        .list2>div {
+          float: left;
+        }
+        .list2 {
+          margin-left: 10px;
+        }
+        .list1{
+          margin-left: 50px;
+        }
+        .buy a {
+          float: left;
+          font-size: 30px;
+          color: #d21212;
+        }
+        .buy1 {
+          margin-left: 20px;
+          line-height: 30px;
+          position: relative;
+          top: -10px;
+        }
+        .buy2 {
+            margin-left: 20px;
+          line-height: 30px;
+          position: relative;
+          top: -10px;
+        }
+        .buy1 ul li a, .buy2 ul li a {
+          color: black;
+        }
+         .buy2 ul li a:hover {
+          border-bottom: 1px solid red;
+        }
+        .buy1 ul li  :hover {
+          border-bottom: 1px solid red
+        }
+        .line1 {
+          height: 60px;
+          border: 1px dashed #efefef;
+          margin-left: 30px;
+          position: relative;
+          top: -10px;
+        }
+        .line2 {
+          border: 1px solid #efefef;
+          width: 1350px;
+          margin-left: 30px;
+          margin-top: 10px;
+        }
+        .bottom>div {
+          float: left;
+        }
+        .bottom a {
+          color: #333;
+        }
+      .line3 {
+        height: 50px;
+        border: 1px solid #efefef
+      }
+      /*  .change {
+          background-color:white;
+          height: 50px;
+          border-top: 2px solid #c00;
+          font-weight: bold;
+        }*/
+        .bottom2:hover, .bottom3:hover {
+          background-color: white;
+          height: 50px;
+          border-top: 2px solid #c00;
+        } 
+        .bottom {
+          margin-top: 18px;
+          margin-left: 30px;
+        }
+        .bottom a {
+          position: relative;
+          top: 10px;
+          font-size: 18px;
+        }
+        .bottom1 {
+            width: 425px;
+            text-align: center;
+            border-top: 2px solid #c00;
+            font-weight: bold;
+            font-size: 18px;
+        }
+       .changed {
+             background-color: #ddd;
+          height: 50px;
+          border-top: 2px solid #efefef;
+          font-weight: normal;}
+
+        .bottom2 , .bottom3 {
+          width: 425px;
+          text-align: center;
+          border: 1px solid #efefef;
+          height: 50px;
+          background-color: #ddd;
+        }
+        .base >div {
+          float: left;
+        }
+        .base1>div{
+          float: left;
+        }
+        .bor>div {
+          float: left;
+        }
+        .bor {
+          border:1px solid#efefef;
+          width: 260px;
+          height: 80px;
+          margin-left: 10px;
+          margin-top: 10px;
+        }
+         .base1-one a {
+          margin-left: 20px;
+          font-size: 20px;
+          font-weight: bold;
+          color: #333;
+
+        }
+          .bor h2 {
+          color: #c00;
+          font-size: 20px;
+          margin-left: 15px;
+
+        }
+          .bor p {
+          font-size: 13px;
+          color: #333;
+          margin-left: 10px;
+        }
+          .base1-one {
+          margin: 10px 10px;
+        }
+        .base1-two {
+         position: relative;
+         top:-10px;
+         left: 20px;
+        }
+        .bor :hover a {
+          color: #c00;
+        }
+        /*.base1-two {
+          float: left;
+        }*/
+        .base {
+          margin-top: 10px;
+        }
+        .base1, .base2, .base3, .base4 {
+          margin-left: 30px;
+          border: 1px solid#efefef;
+          width: 280px;
+          height: 280px;
+
+        }
+        .base1 img, .base2 img, .base3 img, .base4 img {
+          position: relative;
+          top: 15px;left: 10px;
+
+
+        }
+        .base2 img {
+          width: 260px;
+          height: 160px;
+         /* margin:0 50px 0 50px;*/
+        }
+        .base3 {
+          margin-right: 10px;
+        }
+        .base2-one {
+          margin-top: 10px;
+        }
+        .base2-one a{
+           margin-left: 40px;
+          font-size: 20px;
+          font-weight: bold;
+          color: #333;
+        }
+        .base2-two {
+          position: relative;
+          top: -10px;
+        }
+        .base3-one{
+          margin-top: 10px;
+        }
+        .base3-one a {
+             margin-left: 20px;
+          font-size: 20px;
+          font-weight: bold;
+          color: #333;
+        }
+        .base3-two {
+          position: relative;
+          top: -10px;
+          margin-left: 20px;
+        }
+        .base4-one {
+           margin-top: 10px;
+           margin-left: 10px;
+        }
+        .base4-one a {
+           
+          font-size: 20px;
+          font-weight: bold;
+          color: #333;
+        }
+        .base4-two {
+          position:relative;
+          top: -10px; 
+        }
+        .hide {
+          display: none;
+        }
+        .show {
+          display: block;
+        }
+        .bar>div {
+          float: left;
+        }
+       .clearfix::after {
+       	height: 0;
+       	content: "";
+       	display: block;
+       	clear: both;
+       }
+       .icon li {
+        float: left;
+        width: 20px;
+        height: 20px;
+        background: red;
+      
+       position: relative;
+       top:444px;
+       left: 550px;
+       margin-left: 20px;
+       }
+       .icon li.selected {
+        background: yellow;
+       }
+       .hide {
+        display: none;
+       }
+       .right2 {
+        background: white;
+        position: relative;
+        top: 200px;
+        left: 1000px;
+       }
+       .left2 {
+       /* background: white;*/
+
+        position: relative;
+        top: 200px;
+       }
+	</style>
+</head>
+<body>
+	<div class="top clearfix">
+		<div class="left clearfix">
+			<ul class="clearfix">
+				<li class="world"><a href="">全国
+				<img src="E:\作业3\images\xia.gif" alt="">
+        </a>
+				</li>
+				<li><a href="">首页</a></li>
+                <li class="new-house"><a href="">新房</a></li>
+                <li class="old"><a href="">二手房</a></li>
+                <li class="rent"><a href="">租房</a></li>
+                <li><a href="">查房价</a></li>
+                <li class="1"><a href="">装修家具</a></li>
+                <li class="2"><a href="">写字楼</a></li>
+                <li class="3"><a href="">商铺</a></li>
+                <li class="4"><a href="">业主论坛</a></li>
+                <li class="5"><a href="">房产百科</a></li>
+                <li class="6"><a href="">移动App</a></li>
+                <li class="7"><a href="">更多</a></li>
+			</ul>
+		</div>
+		<div class="left-one clearfix">
+				<ul>
+					<li><a href=""><img src="E:\作业3\images\kan.png" alt=""> 看房</a></li>
+					<li><a href=""><img src="E:\作业3\images\ding.png" alt="">    订单</a></li>
+				</ul>
+		</div>
+		<div class="land clearfix">
+			<a href="">登录</a>
+		</div>
+		<div class="line clearfix"></div>
+		<div class="log clearfix">
+			<a href="">注册</a>
+		</div>
+		<div class="adv clearfix">
+			<img src="E:\作业3\images\12377.jpg" alt="">
+		</div>
+	</div>
+  <div class="photo">
+  <ul class="photo-img">
+     <li><img src="E:\作业3\images\1.png" alt=""></li>
+     <li class="hide"><img src="E:\作业3\images\head_logo.jpg" alt=""></li>
+  </ul>
+   <ul class="icon clearfix">
+     <li class="selected"></li>
+     <li ></li>
+   </ul><button class="left2">向左移动</button>
+        <button class="right2">向右移动</button>
+  </div>
+  <div class="house">
+    <div class="adv-house clearfix">
+      <a href=""><img src="E:\作业3\images\2.png" alt=""></a>
+      <span>全国</span>
+      <span>【<a href="">切换城市</a>】</span>
+    </div>
+    <div class="s ">
+      <ul class="s1">
+        <li><a href="">查房价</a></li>
+        <li><a href="">买新房</a></li>
+        <li><a href="">买二手房</a></li>
+        <li><a href="">找租房</a></li>
+        <li><a href="">装修家具</a></li>
+        <li><a href="">房产快讯</a></li>
+        <li><a href="">海外房产</a></li>
+        <li><a href="">地图找房</a></li>
+
+        <a>更多</a><img class="s2" src="E:\作业3\images\3.png" alt="">
+        </ul>
+        <div class="s4 clearfix">
+           <p>请输入小区的名称或地址，给自己的房子估个价</p>
+       </div>
+        <div class="s6"> 
+        <a href=""><img src="E:\作业3\images\4.png" alt="">
+        </a></div>
+     </div>
+  </div>
+ <div class="list">
+      <div class="list1 clearfix">
+        <div class="buy clearfix ">
+          <a href="">买房</a>
+        </div>
+        <div class="buy1">
+           <ul >
+              <li><a href="">新房</a></li>
+              <li><a href="">新房房源</a></li>
+            </ul>
+        </div>
+        <div class="buy2">
+            <ul> 
+             <li><a href="">二手房</a></li>
+              <li><a href="">业主论坛</a></li>
+            </ul>
+        </div>
+        <div class="line1"></div>
+      </div>
+      <div class="list2 clearfix">
+        <div class="buy clearfix ">
+          <a href="">卖房</a>
+        </div>
+        <div class="buy1">
+           <ul >
+              <li><a href="">我要卖房</a></li>
+              <li><a href="">查房价</a></li>
+            </ul>
+        </div>
+        <div class="line1"></div>
+      </div>
+      <div class="list2 clearfix">
+        <div class="buy clearfix ">
+          <a href="">租房</a>
+        </div>
+        <div class="buy1">
+           <ul >
+              <li><a href="">找租房</a></li>
+              <li><a href="">我要出租</a></li>
+            </ul>
+        </div>
+        <div class="buy2">
+            <ul> 
+             <li><a href="">短租</a></li>
+              <li><a href="">月付公寓</a></li>
+            </ul>
+        </div>
+        <div class="line1"></div>
+      </div>
+      <div class="list2 clearfix">
+        <div class="buy clearfix ">
+          <a href="">装修</a>
+        </div>
+        <div class="buy1">
+           <ul >
+              <li><a href="">装修案例</a></li>
+              <li><a href="">找装修公司</a></li>
+            </ul>
+        </div>
+        <div class="buy2">
+            <ul> 
+             <li><a href="">我要装修</a></li>
+              <li><a href="">抢优惠</a></li>
+            </ul>
+        </div>
+        <div class="line1"></div>
+      </div>
+      <div class="list2 clearfix">
+        <div class="buy clearfix ">
+          <a href="">直销</a>
+        </div>
+        <div class="buy1">
+           <ul >
+              <li><a href="">新房直销</a></li>
+              <li><a href="">金融贷款</a></li>
+            </ul>
+        </div>
+        <div class="buy2">
+            <ul> 
+             <li><a href="">二手房源</a></li>
+              <li><a href="">我要加盟</a></li>
+            </ul>
+        </div>
+ </div>
+ <div class="line2"></div>
+ <div class="bottom">
+     <div class="line3"></div>
+    <div class="bottom1">
+      <a href="">热销楼盘</a>
+    </div>
+    <div class="bottom2">
+      <a href="">品牌地产</a>
+    </div>
+    <div class="bottom3">
+      <a href="">全城好房</a>
+    </div>
+ </div>
+ <div class="base  ">
+   <div class="base1">
+       <a href=""><img src="E:\作业3\images\5.jpg" alt=""></a>
+       <div class="bor"> 
+         <div class="base1-one">
+            <a href="">海淀</a>
+            <p>学府树北街</p>
+         </div >
+         <div class="base1-two">
+             <h2>府学大宅</h2>
+             <p>建面185-295㎡</p>
+         </div>
+       </div>
+     
+   </div>
+   <div class="base2 ">
+       <a href=""><img src="E:\作业3\images\6.jpg" alt=""></a>
+          <div class="bor"> 
+         <div class="base2-one">
+            <a href="">顺义</a>
+            <p>右堤路与昌金路交汇处</p>
+         </div>
+         <div class="base2-two">
+             <h2>山水雅墅</h2>
+             <p>建面108-486㎡</p>
+         </div>
+       </div>
+   </div>
+   <div class="base3">
+       <a href=""><img src="E:\作业3\images\7.jpg" alt=""></a> 
+          <div class="bor"> 
+         <div class="base3-one">
+            <a href="">朝青</a>
+            <p>优选二手房</p>
+         </div >
+         <div class="base3-two">
+             <h2>500-800万</h2>
+             <p>共109条房源</p>
+         </div>
+       </div>
+   </div>
+   <div class="base4">
+       <a href=""><img src="E:\作业3\images\8.jpg" alt=""></a> 
+          <div class="bor"> 
+         <div class="base4-one">
+            <a href="">红包等你来领</a>
+            <p>全国25城联动</p>
+         </div >
+         <div class="base4-two">
+             <h2>抽iphone8</h2>
+             <p>赢10000元现金</p>
+         </div>
+       </div>
+   </div>
+ </div>
+  <div class=" bar hide clearfix">
+   <div class="base1">
+       <a href=""><img src="E:\作业3\images\5.jpg" alt=""></a>
+       <div class="bor"> 
+         <div class="base1-one">
+            <a href="">海淀</a>
+            <p>学府树北街</p>
+         </div >
+         <div class="base1-two">
+             <h2>府学大宅</h2>
+             <p>建面185-295㎡</p>
+         </div>
+       </div>
+     
+   </div>
+   <div class="base2 ">
+       <a href=""><img src="E:\作业3\images\6.jpg" alt=""></a>
+          <div class="bor"> 
+         <div class="base2-one">
+            <a href="">顺义</a>
+            <p>右堤路与昌金路交汇处</p>
+         </div>
+         <div class="base2-two">
+             <h2>山水雅墅</h2>
+             <p>建面108-486㎡</p>
+         </div>
+       </div>
+   </div>
+   <div class="base3">
+       <a href=""><img src="E:\作业3\images\11.jpg" alt=""></a> 
+          <div class="bor"> 
+         <div class="base3-one">
+            <a href="">朝青</a>
+            <p>优选二手房</p>
+         </div >
+         <div class="base3-two">
+             <h2>500-800万</h2>
+             <p>共109条房源</p>
+         </div>
+       </div>
+   </div>
+   <div class="base4">
+       <a href=""><img src="E:\作业3\images\8.jpg" alt=""></a> 
+          <div class="bor"> 
+         <div class="base4-one">
+            <a href="">红包等你来领</a>
+            <p>全国25城联动</p>
+         </div >
+         <div class="base4-two">
+             <h2>抽iphone8</h2>
+             <p>赢10000元现金</p>
+         </div>
+       </div>
+   </div>
+ </div>
+  <div class="bar1 hide ">
+   <div class="base1">
+       <a href=""><img src="E:\作业3\images\5.jpg" alt=""></a>
+       <div class="bor"> 
+         <div class="base1-one">
+            <a href="">海淀</a>
+            <p>学府树北街</p>
+         </div >
+         <div class="base1-two">
+             <h2>府学大宅</h2>
+             <p>建面185-295㎡</p>
+         </div>
+       </div>
+     
+   </div>
+   <div class="base2 ">
+       <a href=""><img src="E:\作业3\images\6.jpg" alt=""></a>
+          <div class="bor"> 
+         <div class="base2-one">
+            <a href="">顺义</a>
+            <p>右堤路与昌金路交汇处</p>
+         </div>
+         <div class="base2-two">
+             <h2>山水雅墅</h2>
+             <p>建面108-486㎡</p>
+         </div>
+       </div>
+   </div>
+   <div class="base3">
+       <a href=""><img src="E:\作业3\images\11.jpg" alt=""></a> 
+          <div class="bor"> 
+         <div class="base3-one">
+            <a href="">朝青</a>
+            <p>优选二手房</p>
+         </div >
+         <div class="base3-two">
+             <h2>500-800万</h2>
+             <p>共109条房源</p>
+         </div>
+       </div>
+   </div>
+   <div class="base4">
+       <a href=""><img src="E:\作业3\images\8.jpg" alt=""></a> 
+          <div class="bor"> 
+         <div class="base4-one">
+            <a href="">红包等你来领</a>
+            <p>全国25城联动</p>
+         </div >
+         <div class="base4-two">
+             <h2>抽iphone8</h2>
+             <p>赢10000元现金</p>
+         </div>
+       </div>
+   </div>
+ </div>
+  <div class="city">
+    
+          <ul>
+            <li ><a href="">全国</a></li>
+            <li><a href="">北京</a></li>
+            <li><a href="">上海</a></li>
+            <li><a href="">广州</a></li>
+            <li><a href="">深圳</a></li>
+            <li><a href="">成都</a></li>
+            <li><a href="">重庆</a></li>
+            <li><a href="">天津</a></li>
+            <li><a href="">武汉</a></li>
+            <li><a href="">苏州</a></li>
+            <li><a href="">杭州</a></li>
+            <li><a href="">南京</a></li>
+            <li><a href="">青岛</a></li>
+            <li><a href="">长沙</a></li>
+            <li><a href="">西安</a></li>
+            <li><a href="">沈阳</a></li>
+            <li><a href="">长春</a></li>
+            <li><a href="">常州</a></li>
+            <li><a href="">大连</a></li>
+            <li><a href="">东莞</a></li>
+            <li><a href="">海南</a></li>
+            <li><a href="">济南</a></li>
+            <li><a href="">三亚</a></li>
+            <li><a href="">石家庄</a></li>
+            <li><a href="">无锡</a></li>
+            <li><a href="">郑州</a></li>
+            <li><a href="">宁波</a></li>
+            <li><a href="">南宁</a></li>
+            <li><a href="">昆明</a></li>
+            <li><a href="">合肥</a></li>
+            <li><a href="">南昌</a></li>
+            <li><a href="">香港</a></li>
+            <li><a href="">海外</a></li>
+            <li><a href="">全部658城市</a></li>
+
+          </ul>
+        </div>
+        <div class="s3">
+          <ul>
+            <li><a href="">房产问答</a></li>
+            <li><a href="">房产知识</a></li>
+            <li><a href="">短租</a></li>
+            <li><a href="">写字楼</a></li>
+            <li><a href="">商铺</a></li>
+            <li><a href="">业主论坛</a></li>
+            <li><a href="">综合搜索</a></li>
+          </ul>
+        </div>
+        <div class="new">
+          <ul>
+            <li><a href="">本月开盘</a></li>
+            <li><a href="">热门楼盘</a></li>
+            <li><a href="">新房房源</a></li>
+            <li><a href="">房天下直销</a></li>
+            <li><a href="">打折楼盘</a></li>
+            <li><a href="">新开楼盘</a></li>
+            <li><a href="">楼盘导购</a></li>
+            <li><a href="">新房排行榜</a></li>
+            <li><a href="">购房知识</a></li>
+            <li><a href="">看房团</a></li>
+            <li><a href="">商业地产</a></li>
+          </ul>
+          <button><a href="">帮你找房</a></button>
+        </div>
+        <div class="old-house">
+          <ul>
+            <li><a href="">在线房源</a></li>
+            <li><a href="">优选房源</a></li>
+            <li><a href="">房天下直销</a></li>
+            <li><a href="">找小区</a></li>
+            <li><a href="">找别墅</a></li>
+            <li><a href="">查成交</a></li>
+            <li><a href="">二手房排行榜</a></li>
+            <li><a href="">购房知识</a></li>
+          </ul>
+          <button><a href="">我要卖房</a></button>
+        </div>
+        <div class="rent-room">
+          <ul>
+            <li><a href="">房天下精选</a></li>
+            <li><a href="">个人房源</a></li>
+            <li><a href="">整租房源</a></li>
+            <li><a href="">合租房源</a></li>
+            <li><a href="">别墅房源</a></li>
+            <li><a href="">短租日租</a></li>
+            <li><a href="">特价房</a></li>
+            <li><a href="">租房知识</a></li>
+            <li><a href="">求租</a></li>
+          </ul>
+          <button><a href="">免费发布出租</a></button>
+        </div>
+        <div class="one">
+          <ul>
+            <li><a href="">免费装修报价</a></li>
+            <li><a href="">找装饰公司</a></li>
+            <li><a href="">装修日记</a></li>
+            <li><a href="">装修效果图</a></li>
+            <li><a href="">装修攻略</a></li>
+            <li><a href="">家居资讯</a></li>
+          </ul>
+          <button><a href="">帮你装修</a></button>
+        </div>
+        <div class="two">
+          <ul>
+            <li><a href="">写字楼出租</a></li>
+            <li><a href="">写字楼出售</a></li>
+            <li><a href="">写字楼新盘</a></li>
+          </ul>
+        </div>
+        <div class="three">
+          <ul>
+            <li><a href="">商铺出租</a></li>
+            <li><a href="">商铺出售</a></li>
+            <li><a href="">商铺新盘</a></li>
+          </ul>
+        </div>
+        <div class="four">
+          <ul>
+            <li><a href="">精华帖</a></li>
+            <li><a href="">购房圈</a></li>
+            <li><a href="">业主活动</a></li>
+            <li><a href="">装修论坛</a></li>
+          </ul>
+        </div>
+        <div class="five">
+          <ul>
+            <li><a href="">房产快讯</a></li>
+            <li><a href="">房产问答</a></li>
+            <li><a href="">房产知识</a></li>
+            <li><a href="">房产圈</a></li>
+          </ul>
+        </div>
+        <div class="six">
+          <div>
+            <p>扫描二维码安装</p>
+            <p>房天下APP</p>
+            <img src="E:\作业3\images\9.jpg" alt="">
+          </div>
+          <div class="six1">
+            <p>手机浏览器访问</p>
+            <p>房天下</p>
+            <img src="E:\作业3\images\10.jpg" alt="">
+          </div>
+        </div>
+        <div class="seven">
+          <ul>
+            <li><a href="">金融贷款</a></li>
+            <li><a href="">产业</a></li>
+            <li><a href="">海外房产</a></li>
+            <li><a href="">文化活动频道</a></li>
+          </ul>
+        </div>
+        <div class="eight">
+          <ul>
+            <li><a href="">我的房天下</a></li>
+            <li><a href="">搜房帮</a></li>
+            <li><a href="">装修帮</a></li>
+          </ul>
+        </div>
+	<script type="text/javascript">
+	    $(function(){
+	    	$(".world").mouseover(function(){
+	    		$(".city").show()
+	    	})
+        $(".world").mouseleave(function(){
+          $(".city").hide()
+        })
+         $(".new-house").mouseover(function(){
+          $(".new").toggle()
+        })
+         $(".new-house").mouseleave(function(){
+          $(".new").hide()
+        })
+         $(".old").mouseover(function(){
+          $(".old-house").show()
+        })
+        $(".old").mouseleave(function(){
+          $(".old-house").hide()
+        })
+           $(".rent").mouseover(function(){
+          $(".rent-room").show()
+        })
+        $(".rent").mouseleave(function(){
+          $(".rent-room").hide()
+        })
+        $(".1").mouseover(function(){
+          $(".one").show()
+        })
+        $(".1").mouseleave(function(){
+          $(".one").hide()
+        })
+         $(".2").mouseover(function(){
+          $(".two").show()
+        })
+        $(".2").mouseleave(function(){
+          $(".two").hide()
+        })
+         $(".3").mouseover(function(){
+          $(".three").show()
+        })
+        $(".3").mouseleave(function(){
+          $(".three").hide()
+        })
+         $(".4").mouseover(function(){
+          $(".four").show()
+        })
+        $(".4").mouseleave(function(){
+          $(".four").hide()
+        })
+         $(".5").mouseover(function(){
+          $(".five").show()
+        })
+        $(".5").mouseleave(function(){
+          $(".five").hide()
+        })
+          $(".6").mouseover(function(){
+          $(".six").show()
+        })
+        $(".6").mouseleave(function(){
+          $(".six").hide()
+        })
+         $(".7").mouseover(function(){
+          $(".seven").show()
+        })
+        $(".7").mouseleave(function(){
+          $(".seven").hide()
+        })
+          $(".land").mouseover(function(){
+          $(".eight").show()
+        })
+        $(".land").mouseleave(function(){
+          $(".eight").hide()
+        })
+        $(".s2").mouseover(function(){
+          $(".s3").show()
+        })
+        $(".s2").mouseleave(function(){
+          $(".s3").hide()
+        })
+        $(".bottom2").mouseover(function(){
+          $(".bottom1").addClass("changed")
+        })
+        $(".bottom3").mouseover(function(){
+          $(".bottom1").addClass("changed")
+        })
+         $(".bottom1").mouseover(function(){
+          $(".bottom1").removeClass("changed")
+        })
+          // $(".bottom1").mouseover(function(){
+          //       $(this).addClass("selected").siblings().removeClass("selected");
+          //       var index = $(this).index();
+          //       $(".bar1").eq(index).show().siblings().hide();
+          //   })
+          $(".bottom2").mouseover(function(){
+            $(".bar").show();
+            $(".base").hide()
+            // var index=$(".bar").index();
+            // $(".bar").eq(index).show().siblings().hide();
+          })
+          var index=$("icon li.selected").index()
+           $( ".left2").click(function(){
+            
+            if (index==1){index=-1}
+            $(".icon li").eq(index+=1).addClass("selected").siblings().removeClass("selected");
+             $(".photo-img li").eq(index).fadeIn().siblings().fadeOut();
+           })
+            $( ".right2").click(function(){
+           
+            if (index==1){index=-1}
+      
+            $(".icon li").eq(index+=1).addClass("selected").siblings().removeClass("selected");
+          console.log(index)
+             $(".photo-img li").eq(index).fadeIn().siblings().fadeOut();
+           })
+        // $(".bottom1").mouseleave(function(){
+        //   $(".bottom1").addClass("change")
+        // })
+        //   $(".bottom2").mouseover(function(){
+        //   $(".bottom2").removeClass("changed")
+        // })
+	    })
+	</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul,li {
+            margin: 0;
+            padding: 0;
+        }
+        .clearfix::after {
+            clear: both;
+            display: block;
+            content: "";
+            height: 0;
+        }
+        ul {
+            list-style: none;
+            width: 1500px;
+            margin-left: -300px;
+        }
+        ul>li, ul>li>img {
+            width: 300px;
+            height: 300px;
+        }
+        ul>li {
+            float: left;
+            line-height: 300px;
+            text-align: center;
+            font-size: 30px;
+        }
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+            margin: 0 auto;
+            position: relative;
+            /*overflow: hidden;*/
+        }
+        .left {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .right {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    </style>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <div class="box">
+        <ul class="clearfix">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <button class="left">向左移动</button>
+        <button class="right">向右移动</button>
+    </div>
+    <script>
+        $(function(){
+            $(".left").click(function(){
+                $("ul").stop(true,true).animate({
+                    marginLeft:"-=300px",
+                },500,function(){
+                    var first = $("li").first();
+                    var last = $("li").last();
+                    first.insertAfter(last);
+                    $("ul").css("margin-left","-300px");
+                })
+            })
+            $(".right").click(function(){
+                $("ul").stop(true,true).animate({
+                    marginLeft:"+=300px",
+                },500,function(){
+                    var first = $("li").first();
+                    var last = $("li").last();
+                    last.insertBefore(first);
+                    $("ul").css("margin-left","-300px");
+                })
+            })
+        })
+    </script>
+</body>
+</html>

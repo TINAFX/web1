@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./js/jquery-3.2.1.min.js"></script>
+	<style>
+	html,body,ul,li,h2,p{
+		margin:0;
+		padding: 0;
+	}
+	ul{
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+	}
+	  .head-img {
+         width: 100%;
+         height: 120px;
+
+	  }
+	  .head-img img {
+	  	display: block;
+	  	overflow: hidden;
+	  	position: relative;
+	  	right: 50%;
+	  }
+      .head-topbar {
+      	height: 40px;
+	    font-size: 12px;
+	    color: #b0b0b0;
+	    background: #333
+      }
+      .head-content{
+      	overflow: hidden;
+      	width: 1226px;
+      	margin-left: auto;
+      	margin-right: auto;
+      }
+      .top-info {
+      	position: relative;
+        left: 280px;
+      }
+      .top-nav ul li, .top-info ul li {
+      	float: left;
+      	margin-right: 10px;
+      	line-height: 40px;
+      }
+      .top-nav ul li:hover a, .top-info ul li:hover a {
+      	color: #fff;
+      }
+      .top-nav ul li a, .top-info ul li a {
+      	color:#b0b0b0;
+      	font-size: 12px;
+      }
+      .top-car {
+      	float: right;
+      }
+      .top-car a {
+      	margin-right: 4px;
+      	color: #b0b0b0;
+      	display: block;
+      	line-height: 40px;
+      	padding: 0 15px;
+      	background: #424242;
+      }
+      .top-car:hover a{
+      	background: #fff;
+      	color:#ff6700;
+      }
+      .top-car:hover .car-bar {
+      	display: block;
+      }
+      .car-bar {
+      	z-index: 2;
+      	display: none;
+        width: 300px;
+        height: 200px;
+        text-align: center;
+        background: #fff;
+        position: absolute;
+        right: 73px;
+        box-shadow: 1px 1px 10px -1px rgba(0,0,0,0.6);
+      }
+      .car-bar p {
+      	color: #ff6700;
+      }
+      .clearfix::after {
+      	clear: both;
+      	display: block;
+      	content:"";
+      	height: 0;
+      }
+      .container {
+        width: 1226px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .head-logo {
+      	float: left;
+      	margin-top: 22px;
+      	width: 62px;
+      }
+      .head-nav {
+      	float: left;
+      	margin-left: 100px;
+      	height: 88px;
+      	width: 620px;
+      	padding: 12px 0 0 30px;
+      }
+      .head-nav>ul>li {
+      	float: left;
+	    line-height: 78px;
+	   padding: 0 10px;
+      }
+      .head-nav>ul>li a{
+      	color:#333;
+      	font-size: 16px;
+      }
+      .head-nav>ul>li:hover a {
+      	color: #ff6700;
+      }
+      .head-search {
+      	float: right;
+      	width: 296px;
+        margin-top: 25px
+      }
+      .head-search input {
+      	background: url("./images/search.png");
+      	background-size: 20px 20px;
+      	background-repeat: no-repeat;
+      	background-position: 95%  50%;
+      	border: 1px solid #b0b0b0;
+      	outline: none;
+      	width: 245px;
+      	height: 50px;
+      }
+      .hide-bar {
+      	background: #fff;
+      	position: absolute;
+      	z-index: 4;
+      	overflow: hidden;
+      	width: 100%;
+      	border-top: 1px solid #b0b0b0;
+      }
+      .child {
+      	width: 1226px;
+      	margin-left: auto;
+      	margin-right: auto;
+      }
+      .child-list li{
+      	float: left;
+      	width: 180px;
+	    padding:  0 20px 15px 0 ;
+	    text-align: center
+      }
+      .new a {
+      	border: 1px solid #ff6700;
+      	color: #ff6700;
+      	padding: 0 5px;
+      	font-size: 15px;
+      }
+      .child-img {
+      	margin:20px 0 10px 5px;
+      	border-right: 1px solid #b0b0b0;
+
+      }
+      .child-img img {
+      	width: 150px;
+      	height: 150px;
+      	
+      }
+      .title h2 a {
+      	font-size: 13px;
+      	color: #333;
+      	line-height: 20px
+      }
+      .price {
+      	color: #ff6700;
+      	font-size: 12px;
+      }
+      .hide {
+      	display: none;
+      }
+      .back{
+      	overflow: hidden;
+      	height: 460px;
+        position: relative;
+      	width: 1226px;
+      	margin-left: auto;
+      	margin-right: auto;
+      }
+      .fix {
+      	text-align: left;
+      	position: absolute;
+      	top: 0;
+      	z-index: 3;
+      	background: rgba(0,0,0,0.6);
+      	width: 234px;
+	    font-size: 14px;
+	    padding: 20px 0
+      }
+      .fix>ul>li {
+      	position: relative;
+      	padding: 0 0 0 30px;
+      	/*background: url("./images/more.png");
+      	background-size: 20px 20px;
+      	background-position: 100% 50%;
+      	background-repeat: no-repeat;*/
+      	line-height: 42px;
+      }
+      .fix>ul>li>img {
+      	width: 25px;
+      	height: 25px;
+      	position: absolute;
+      	top: 10px;
+      	left: 200px;
+      }
+      .fix>ul>li>a {
+      	color: #fff;
+      }
+      .fix>ul>li:hover {
+      	background:#ff6700;
+      }
+      .fix>ul>li:hover .fix-menu {
+      	display: block;
+      }
+      .fix-menu {
+      	display: none;
+      	width: 795px;
+      	position: absolute;
+	    left: 234px;
+	    top: -20px;
+	    z-index: 24;
+	    height: 458px;
+	    border: 1px solid #e0e0e0;
+	    border-left: 0;
+	    background: #fff;
+	    box-shadow: 0 8px 16px rgba(0,0,0,0.18);
+      }
+     .fix-child {
+     	float: left;
+     	width: 265px;
+     	height: 460px;
+     }
+     .fix-child {
+     	padding: 20px 0;
+     }
+     .fix-child>li {
+     	padding: 0 20px  30px 10px;
+     }
+     .fix-child>li img{
+     	float: left;
+     	width: 40px;
+     	height: 40px;
+     	margin-right: 10px;
+     }
+     .fix-child>li>a {
+     	float: left;
+     	display: block;
+     	color: #333;
+     }
+     .fix-child>li:hover a {
+     	color: #ff6700;
+     }
+     .fix-child>li .buy-btn{
+     	float: right;
+       	text-align: center;
+     	margin-top: 10px;
+     }
+     .fix-child>li>a>p{
+     	
+     	font-size: 14px;
+     	line-height:1px;
+     	color: #ff6700;
+     	border: 1px solid #ff6700;
+     	padding: 10px 10px;
+     }
+      .buy-btn:hover {
+     	background: #ff6700;
+     }
+     .buy-btn:hover p {
+     	color: #fff;
+     }
+     .left a, .right a {
+     	background: rgba(0,0,0,0.6);
+     	padding: 10px 0 0 0;
+     	width: 50px;
+     	height: 70px;
+     	display: block;
+     }
+     .left a img, .right a img {
+     	width: 40px;
+     	height: 50px;
+     }
+     .left{
+     	position: absolute;
+     	top: 40%;
+     	left: 19%;
+     }
+     .right {
+     	position: absolute;
+     	top: 40%;
+     	left: 96%;
+     }
+     .icon {
+     	position: absolute;
+     	left: 90%;
+     	top: 96%;
+     }
+     .icon ul li {
+     	margin-right: 10px;
+     	float: left;
+     	width: 10px;
+     	height: 10px;
+     	border-radius: 100%;
+     	background: rgba(0,0,0,0.6);
+     }
+     .icon ul .select {
+     	background: #dbdbdb;
+     }
+     .img a {
+     	display: inline-block;
+     	width: 1226px;
+     	height: 460px;
+     }
+	</style>
+</head>
+<body>
+	<div class="head">
+		<div class="head-img">
+		   <a href="#">
+			  <img src="./images/head.jpg" alt="">
+		   </a>
+		</div>
+		<div class="head-topbar clearfix">
+		    <div class="head-content">
+		    	<div class="top-nav">
+					<ul>
+						<li><a href="#">小米商城</a></li>
+						<li>|</li>
+						<li><a href="#">MIUI</a></li>
+						<li>|</li>
+						<li><a href="#">米聊</a></li>
+						<li>|</li>
+						<li><a href="#">游戏</a></li>
+						<li>|</li>
+						<li><a href="#">多看阅读</a></li>
+						<li>|</li>
+						<li><a href="#">云服务</a></li>
+						<li>|</li>
+						<li><a href="#">金融</a></li>
+						<li>|</li>
+						<li><a href="#">米币</a></li>
+						<li>|</li>
+						<li><a href="#">小米商城手机版</a></li>
+						<li>|</li>
+						<li><a href="#">问题反馈</a></li>
+						<li>|</li>
+						<li><a href="#">Select Regin</a></li>
+					</ul>
+			    </div>
+			    <div class="top-info">
+			    	<ul>
+			    		<li><a href="#">登陆</a></li>
+			    		<li>|</li>
+			    		<li><a href="#">注册</a></li>
+			    		<li>|</li>
+			    		<li><a href="#">消息通知</a></li>
+			    	</ul>
+			    </div>
+			    <div class="top-car">
+			    	<a href="#">购物车(0)</a>
+			    	<div class="car-bar">
+			    		<p>购物车还没有商品，赶紧选购吧！</p>
+			    	</div>
+			    </div>
+		    </div>
+		</div>
+	</div>
+	<div class="siter-head clearfix">
+		<div class="container  clearfix">
+			<div class="head-logo">
+				<a href="#">
+					<img src="./images/logo.png" alt="">
+				</a>
+			</div>
+			<div class="head-nav">
+				<ul class="clearfix">
+					<li>
+					    <a href="#">小米手机</a>
+					</li>
+					<li>
+					    <a href="#">红米</a>
+					</li>
+					<li>
+					    <a href="#">笔记本</a>
+					</li>
+					<li>
+					    <a href="#">电视</a>
+					</li>
+					<li>
+					    <a href="#">盒子</a>
+					</li>
+					<li>
+					    <a href="#">新品</a>
+					</li>
+					<li>
+					    <a href="#">路由器</a>
+					</li>
+					<li>
+					    <a href="#">硬件智能</a>
+					</li>
+					<li>
+						<a href="#">服务</a>
+					</li>
+					<li>
+						<a href="#">社区</a>
+					</li>
+				</ul>
+			</div>
+			<div class="head-search">
+				<input type="text" >
+				<div class="search-icon"></div>
+			</div>
+		</div>
+		<div>
+			<div class="hide-bar hide">
+				<div class="child ">
+					<ul class="child-list">
+						<li class="children">
+						    <div class="new">
+						   	   <a href="#">新品</a>
+						    </div>
+						    <div class="child-img">
+						    	<img src="./images/6666.png" alt="">
+						    </div>
+						    <div class="title">
+						    	<h2>
+						    		<a href="#">小米MIX2</a>
+						    	</h2>
+						    	<p class="price">3999元</p>
+						    </div>	
+						</li>
+						<li class="children">
+						    <div class="new">
+						   	   <a href="#">新品</a>
+						    </div>
+						    <div class="child-img">
+						    	<img src="./images/feng.jpg" alt="">
+						    </div>
+						    <div class="title">
+						    	<h2>
+						    		<a href="#">小米MIX2</a>
+						    	</h2>
+						    	<p class="price">3999元</p>
+						    </div>	
+						</li>
+						<li class="children">
+						    <div class="new">
+						   	   <a href="#">新品</a>
+						    </div>
+						    <div class="child-img">
+						    	<img src="./images/6666.png" alt="">
+						    </div>
+						    <div class="title">
+						    	<h2>
+						    		<a href="#">小米MIX2</a>
+						    	</h2>
+						    	<p class="price">3999元</p>
+						    </div>	
+						</li>
+						<li class="children">
+						    <div class="new">
+						   	   <a href="#">新品</a>
+						    </div>
+						    <div class="child-img">
+						    	<img src="./images/6666.png" alt="">
+						    </div>
+						    <div class="title">
+						    	<h2>
+						    		<a href="#">小米MIX2</a>
+						    	</h2>
+						    	<p class="price">3999元</p>
+						    </div>	
+						</li>
+						<li class="children">
+						    <div class="new">
+						   	   <a href="#">新品</a>
+						    </div>
+						    <div class="child-img">
+						    	<img src="./images/6666.png" alt="">
+						    </div>
+						    <div class="title">
+						    	<h2>
+						    		<a href="#">小米MIX2</a>
+						    	</h2>
+						    	<p class="price">3999元</p>
+						    </div>	
+						</li>
+						<li class="children">
+						    <div class="new">
+						   	   <a href="#">新品</a>
+						    </div>
+						    <div class="child-img">
+						    	<img src="./images/6666.png" alt="">
+						    </div>
+						    <div class="title">
+						    	<h2>
+						    		<a href="#">小米MIX2</a>
+						    	</h2>
+						    	<p class="price">3999元</p>
+						    </div>	
+						</li>
+					</ul>
+				</div>
+		    </div>
+		    <div class="hide-bar hide">
+				<div class="child ">
+					<ul class="child-list">
+						<li class="children">
+						    <div class="new">
+						   	   <a href="#">新品</a>
+						    </div>
+						    <div class="child-img">
+						    	<img src="./images/6666.png" alt="">
+						    </div>
+						    <div class="title">
+						    	<h2>
+						    		<a href="#">小米MIX2</a>
+						    	</h2>
+						    	<p class="price">3999元</p>
+						    </div>	
+						</li>
+						<li class="children">
+						    <div class="new">
+						   	   <a href="#">新品</a>
+						    </div>
+						    <div class="child-img">
+						    	<img src="./images/feng.jpg" alt="">
+						    </div>
+						    <div class="title">
+						    	<h2>
+						    		<a href="#">小米MIX2</a>
+						    	</h2>
+						    	<p class="price">3999元</p>
+						    </div>	
+						</li>
+						<li class="children">
+						    <div class="new">
+						   	   <a href="#">新品</a>
+						    </div>
+						    <div class="child-img">
+						    	<img src="./images/6666.png" alt="">
+						    </div>
+						    <div class="title">
+						    	<h2>
+						    		<a href="#">小米MIX2</a>
+						    	</h2>
+						    	<p class="price">3999元</p>
+						    </div>	
+						</li>
+						<li class="children">
+						    <div class="new">
+						   	   <a href="#">新品</a>
+						    </div>
+						    <div class="child-img">
+						    	<img src="./images/6666.png" alt="">
+						    </div>
+						    <div class="title">
+						    	<h2>
+						    		<a href="#">小米MIX2</a>
+						    	</h2>
+						    	<p class="price">3999元</p>
+						    </div>	
+						</li>
+						<li class="children">
+						    <div class="new">
+						   	   <a href="#">新品</a>
+						    </div>
+						    <div class="child-img">
+						    	<img src="./images/6666.png" alt="">
+						    </div>
+						    <div class="title">
+						    	<h2>
+						    		<a href="#">小米MIX2</a>
+						    	</h2>
+						    	<p class="price">3999元</p>
+						    </div>	
+						</li>
+						<li class="children">
+						    <div class="new">
+						   	   <a href="#">新品</a>
+						    </div>
+						    <div class="child-img">
+						    	<img src="./images/6666.png" alt="">
+						    </div>
+						    <div class="title">
+						    	<h2>
+						    		<a href="#">小米MIX2</a>
+						    	</h2>
+						    	<p class="price">3999元</p>
+						    </div>	
+						</li>
+					</ul>
+				</div>
+		    </div>
+		</div>
+	</div>
+	<div class="back">
+		<div class="back-img">
+		    <div class="img">
+		    	<ul>
+					<li>
+						<a href="#"><img src="./images/3.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href="#"><img src="./images/5.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href="#"><img src="./images/4.jpg" alt=""></a>
+					</li>
+					<li >
+						<a href="#"><img src="./images/6.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href="#"><img src="./images/7.jpg" alt=""></a>
+					</li>
+				</ul>
+		    </div>
+		    <div>
+		    	<div class="left"><a href="javascript:void(0)"><img src="./images/left.png" alt=""></a></div>
+		        <div class="right"><a href="javascript:void(0)"><img src="./images/htb－Arrow right02.png" alt=""></a></div>
+		    </div>
+
+		    <div class="icon">
+		    	<ul>
+		    		<li class="select"></li>
+		    		<li></li>
+		    		<li></li>
+		    		<li></li>
+		    		<li></li>
+		    	</ul>
+		    </div>
+			<div class="fix">
+				<ul>
+					<li>
+					    <a href="#">手机 电话卡</a>
+					    <img src="./images/more.png" alt="">
+					    <div class="fix-menu">
+					    	<ul class="fix-child">
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    	</ul> 
+					    	<ul class="fix-child">
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    	</ul> 
+					    	<ul class="fix-child">
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    		<li class="clearfix">
+					    			<a href="#">
+					    				<img src="./images/baohu.jpg" alt="">
+					    				<span>小米Note3</span>
+					    			</a>
+                                    <a href="#" class="buy-btn"><p>选购</p></a>
+					    		</li>
+					    	</ul>
+					    </div>
+					</li>
+					<li>
+					    <a href="#">笔记本</a>
+					    <img src="./images/more.png" alt="">
+					</li>
+					<li>
+					    <a href="#">电视 盒子</a>
+					    <img src="./images/more.png" alt="">
+					</li>
+					<li>
+					    <a href="#">路由器 智能硬件</a>
+					    <img src="./images/more.png" alt="">
+					</li>
+					<li>
+					    <a href="#">移动电源 电池 插线板</a>
+					    <img src="./images/more.png" alt="">
+					</li>
+					<li>
+					    <a href="#">耳机 音响</a>
+					    <img src="./images/more.png" alt="">
+					</li>
+					<li>
+					    <a href="#">保护套贴膜</a>
+					    <img src="./images/more.png" alt="">
+					</li>
+					<li>
+					    <a href="#">线材 支架 存储卡</a>
+					    <img src="./images/more.png" alt="">
+					</li>
+					<li>
+					   <a href="#">箱包 服饰 鞋 眼镜</a>
+					   <img src="./images/more.png" alt="">
+					</li>
+					<li>
+					   <a href="#">米兔 生活 周边</a>
+					   <img src="./images/more.png" alt="">
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="home-hero-sub row">
+			
+		</div>
+	</div>
+<script>
+	$(function(){
+		$(".head-nav ul li").mouseover(function(e){
+			var index=$(this).index()
+			$(".hide-bar").eq(index).slideDown().siblings().hide();
+			$(document).one("mouseover",function(){
+				$(".hide-bar").eq(index).hide();
+			});
+			e.stopPropagation();
+		});	
+	
+		var nowIndex=$(".icon ul .select").index();
+		$(".left").click(function(){
+			if(nowIndex == 0){ nowIndex = 5;}
+				$(".icon ul li").eq(nowIndex-=1).addClass("select").siblings().removeClass("select")
+			    $(".img ul li").eq(nowIndex).fadeOut().siblings().fadeIn();
+			    console.log( $(".img ul li").eq(nowIndex).fadeIn().siblings().fadeOut())
+			console.log(nowIndex)
+		});
+		$(".right").click(function(){
+			if(nowIndex == 4){nowIndex =-1;}
+				$(".icon ul li").eq(nowIndex+=1).addClass("select").siblings().removeClass("select")
+			    $(".img ul li").eq(nowIndex).fadeIn().siblings().fadeOut();
+			console.log(nowIndex)
+		});
+
+
+	})
+</script>
+</body>
+</html>

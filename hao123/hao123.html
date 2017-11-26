@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+   <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+   
+	 <title>Document</title>
+	<script src="./js/jquery-3.2.1.min.js"></script>
+	<style>
+    html,body,ul,li,h3,h2,img,p {
+    	padding: 0;
+    	margin: 0;
+    }
+    a {
+    	text-decoration: none;
+    }
+    ul {
+    	list-style: none;
+    }
+    .head-nav {
+        
+    	width: 100%;
+    	height: 60px;
+    	background-color: #0aa770;
+    	border-bottom: 1px solid #099e6a;
+    	padding: 0 60px;
+    }
+    .logo ul li {
+    	float: left;
+    	line-height: 80px;
+    }
+     .clearfix::after {
+     	clear: both;
+     	display: block;
+     	content: "";
+     	height: 0;
+     }
+     .head-nav>div{
+     	float: left;
+     }
+     .nav {
+     	margin-left: 26px;
+     }
+     .nav>ul>li{
+     	float: left;
+     	line-height: 60px;
+     	
+     }
+     .nav:hover {
+     	background: #118860;
+     }
+     .nav:hover .menu-hide {
+     	display: block;
+     }
+     .nav>ul>li>a {
+     	margin: 0 3px;
+       font-size: 18px;
+       color: #fff;
+     }
+     .menu-hide {
+     	position: absolute;
+     	z-index: 2;
+     	display: none ;
+     	background: #118860;
+     	
+     }
+     .item {
+     	    width: 190px;
+     	    padding: 10px;
+     }
+     .item h3 {
+     	/*margin-top: 50px;*/
+     	width: 33px;
+     	font-size: 13px;
+    color: #fff;
+     font-weight: normal;
+    line-height: 20px
+     }
+     .list ul li {
+     	padding: 5px;
+     	float: left;
+     	line-height: 20px;
+     }
+     .list ul li a {
+     	font-size: 13px;
+    color: #fff;
+     }
+     .list ul li:hover {
+        background:#0aa770;
+
+     }
+     .list ul li:hover a {
+     	border-bottom: 1px solid #fff;
+     }
+     .list {
+     	float: left;
+     	width: 160px;
+     	position: relative;
+     	top: -50px;
+     	left: 40px;
+     }
+     .land {
+     	margin-left: 400px;
+     }
+     .land ul li:hover a {
+     	border-bottom: 1px solid #fff;
+     }
+     .land1 :hover, .phone :hover {
+     	background: #118860;
+     }
+     .land ul li {
+     	padding: 0 5px;
+     	float: left;
+     	line-height: 60px;
+     }
+     .land ul li a {
+     	font-size: 14px;
+     	color: #fff;
+     }
+     .phone {
+     	margin-left: 90px;
+     }
+     .search input {
+     	width: 280px;
+    border: 0;
+    padding: 5px 10px;
+    font-size: 14px;
+    height: 22px;
+    line-height: 22px;
+    background-color: #fff;
+    color: #333;
+    margin-top: 15px;
+     }
+     .search1 {
+     	float: left;
+    width: 80px;
+    height: 32px;
+    border: 0;
+    padding: 0;
+    background-image: url("./images/77.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-color: #118860;
+    margin-top: 15px;
+     }
+     .head-list {
+     	
+     	width: 100%;
+     	/*padding: 0 60px;*/
+     	background: #0aa770;
+     	height: 40px;
+     }
+     .head-list ul li {
+     	position: relative;
+     	left: -220px;
+         padding: 0 20px;
+     	float: left;
+     	line-height: 40px;
+     }
+     .head-list ul li a {
+     	color: #fff;
+     }
+     .head-list ul li:nth-child(1) {
+     	background:#118860; 
+     }
+     .head-list ul li:hover {
+     	background: #17b77f;
+     }
+     .content {
+     	padding: 10px 0 0 60px;
+     	/*border:1px solid #e9e9e9;*/
+     	background: #e9e9e9;
+     	
+
+     }
+     .left {
+     	width: 670px;
+     	background: #fff;
+     	/*height: 305px;*/
+     }
+     .bar {
+     	width: 124px;
+     }
+     .bar ul li {
+     	padding: 20px 20px;
+     	background: #0aa770;
+     }
+     .bar ul li a {
+     	font-size: 15px;
+     	color: #fff;
+     }
+     .bar ul li:nth-child(1){
+     	background: #fff;
+     }
+     .bar ul li:nth-child(1) a{
+     	color: #3cb43c;
+     }
+     .bar ul li:hover {
+     	background: #fff;
+     }
+     .bar ul li:hover a {
+     	color: #3cb43c;
+     }
+     .bar-list {
+     	float: left;
+     	position: absolute;
+     	left: 200px;
+     	top: 240px;
+     	/*z-index: 3;*/
+     }
+     .bar-list img {
+     	border:1px solid #e9e9e9;
+     	background: #e9e9e9;
+
+     }
+     .cenmar {
+     /* margin-left: -450px;*/
+      position: absolute;
+      left: 40px;
+      top: -90px;
+      width: 450px;
+      height: 170px;
+      margin: 0 auto;
+      overflow: hidden;
+   
+     }
+     /*.cenmar>ul{
+       margin-left: -800px;
+     }*/
+     .cenmar>ul>li {
+        float: left;
+     }
+     .img-box {
+      /*margin-left: -450px;*/
+     }
+    .img-box>li {
+      float: left;
+    }
+     .cenmar ul li img {
+        width: 120px;
+        height: 170px;
+     }
+     .bar-right {
+      position: absolute;
+      left: 450px;
+      top: -1px;
+     }
+     .area {
+        margin-left: 30px;
+     }
+     .area ul li {
+
+          margin-top: 70px;
+          float: left;
+          padding: 10px;
+     }
+     .area ul li:nth-child(1) a{
+          background: url("./images/222.png");
+          background-repeat: no-repeat;
+          background-position:  40px 10px;
+          color: #333;
+          border: 1px solid #333;
+          padding: 3px  30px 3px 5px;
+          font-size: 15px;
+     }
+     .area ul li:nth-child(2) a{
+          background: url("./images/222.png");
+          background-repeat: no-repeat;
+          background-position:  120px 10px;
+          color: #333;
+          border: 1px solid #333;
+          padding: 3px  100px 3px 5px;
+          font-size: 15px;
+     }
+     .area ul li:nth-child(3) a{
+          background: url("./images/222.png");
+          background-repeat: no-repeat;
+          background-position:  120px 10px;
+          color: #333;
+          border: 1px solid #333;
+          padding: 3px  100px 3px 5px;
+          font-size: 15px;
+     }
+     .area1 {
+        position: absolute;
+        top: 190px;
+        left: 380px;
+     }
+     .area1 a {
+      
+        padding: 3px;
+        font-size: 15px;
+        color: #fff;
+        background: #ff6d00;
+        border: 1px solid #ff6d00;
+     }
+     .content>div {
+        float: left;
+     }
+     .right {
+      padding: 10px 20px;
+      background: #e9e9e9;
+     }
+     .right h2 {
+      color: #333;
+      font-weight: normal;
+     }
+     .right ul li {
+      margin: 10px 10px 0 0;
+      float: left;
+     }
+     .right ul li a {
+      color: #666;
+     }
+     .right ul li:nth-child(3) a{
+      color: #f50;
+     }
+     
+     .right ul li:hover a {
+      color: #f50;
+      border-bottom: 1px solid #f50;
+     }
+     .right h2:hover{
+      border-bottom: 1px solid #f50;
+      color: #f50;
+     }
+     .line {
+      border: 1px solid #ccc;
+      height: 13px;
+     position: relative;
+     top:5px;
+      width: 0
+     }
+     .right1 {
+      position: relative;
+      top: 20px;
+     }
+     .line1 {
+      border:1px dashed #ccc;
+      position: relative;
+      top: 80px;
+
+     }
+     .right-content  {
+      padding: 20px;
+      margin-top: 40px;
+     }
+     .right-content ul li  {
+      float: left;
+      padding:  0 10px 20px 0;
+     }
+     .right-content ul  li a{
+      color: #666;
+     }
+     /*.right-content ul  li:hover {
+      border-bottom: 1px solid #f50;
+     }*/
+     .right-content ul li:hover a {
+       border-bottom: 1px solid #f50;
+      color: #f50;
+     }
+     .bottom {
+      width: 100%;
+      position: relative;
+      padding: 15px 0 0 60px;
+     }
+     .bottom-nav {
+      border:1px solid #e9e9e9;
+          width: 915px;
+    height: 50px;
+    background: #0aa770;
+     }
+     .nav-fix{
+      position: fixed;
+      top: 0;
+      left: 60px;
+      z-index: 9999;
+      width: 915px;
+      
+     }
+     .nav-ab {
+      position: absolute;
+      top: 15px;
+      left: 60px;
+      z-index: 9999;
+      width: 915px;
+     }
+     /*.bottom-content {
+      height: 2000px;
+      width: 915px;
+      background: yellow;
+     }*/
+     .bottom-nav ul li {
+      float: left;
+      padding: 0 20px;
+      line-height: 50px;
+     }
+     .bottom-nav ul li a {
+      color: #fff;
+     }
+     .bottom-nav ul li:nth-child(1) a {
+      background: #fff;
+      color: #333;
+     }
+     .bottom-nav ul .hot {
+      border-top:5px solid #0aa770;
+      line-height: 45px;
+      background: white;
+     }
+     .bottom-nav>div {
+      float: left;
+     }
+     .tab {
+       width: 270px;
+       height: 130px;
+       overflow: hidden;
+       position: relative;
+       left: 550px;
+     }
+     .tab-left {
+      position: absolute;
+      left: 20px;
+      top: 70px;
+      background: url("./images/88.png");
+      width: 13px;
+      height: 26px;
+      background-repeat: no-repeat;
+     }
+     .tab-right {
+      background: url("./images/99.png");
+      background-repeat: no-repeat;
+      width: 13px;
+      height: 26px;
+      position: absolute;
+      left: 255px;
+      top: 70px;
+     }
+
+     .tab-img>li {
+      float: left;
+     /* margin-right: -320px;*/
+     }
+     .img img {
+      position: absolute;
+
+      border: 1px solid #e9e9e9;
+      width: 150px;
+      height: 112px;
+     }
+     .bottom-content {
+      margin-top: 70px;
+      width: 915px;
+     }
+     .bottom-item ul li {
+      border-bottom: 1px dashed #ccc;
+      padding: 20px 0 30px 0
+     }
+     .bottom-item h2 {
+      font-size: 22px;
+      font-weight: normal;
+     }
+     .bottom-item p {
+      font-size: 15px;
+      color: #666;
+      line-height: 30px;
+     }
+     .bottom-item a {
+      font-size: 15px;
+      float: right;
+      position: relative;
+      top: -25px;
+      right: 150px;
+     }
+     .img-content {
+      width: 700px;
+      position: relative;
+      left: 180px;
+     }
+
+     .bottom-item :hover {
+      background-color: #e9e9e9;
+     }
+     .bottom-content>div {
+      float: left;
+     }
+     .adv {
+      position: absolute;
+      right: 165px;
+      margin-top:80px;
+      width: 255px;
+      /*height: 2000px;
+      background:#e9e9e9;*/
+     }
+     .cheap {
+          width: 255px;
+    height: 150px;
+    border-top: 1px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    background: #f4f4f4;
+    padding-bottom: 20px;
+    margin-bottom: 20px
+     }
+     .cheap h2 {
+      width: 78px;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 20px;
+    background: #f94977;
+    text-align: center;
+    margin: 20px 0 0 18px
+     }
+	</style>
+</head>
+<body>
+	<div class="head ">
+		<div class="head-nav">
+		   <div class="logo">
+			   	<ul class="clearfix">
+					<li>
+					  <a href="">
+					  	<img src="./images/hao-logo.png" alt="">
+					  </a>
+					</li>
+					<li>
+						<a href="">
+							<img src="./images/555.jpg" alt="">
+						</a>
+					</li>
+				</ul>
+		   </div>
+			<div class="nav">
+               <ul class="clearfix">
+               	  <li><a href=""><img src="./images/2.png" alt=""></a></li>
+               	  <li><a href="">导航</a></li>
+               </ul>
+               <div class="menu-hide">
+               	  	 <div class="item">
+               	  	 	<h3 class="clearfix">休闲娱乐</h3>
+               	  	 	<div class="list">
+               	  	 		<ul>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 		</ul>
+               	  	 	</div>
+               	  	 </div>
+               	  	  <div class="item">
+               	  	 	<h3 class="clearfix">休闲娱乐</h3>
+               	  	 	<div class="list">
+               	  	 		<ul>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 			<li><a href="">电影</a></li>
+               	  	 		</ul>
+               	  	 	</div>
+               	  	 </div>
+               	  </div>
+			</div>
+
+			<div class="land">
+				<ul class="land1">
+					<li><a href=""><img src="./images/3.png" alt=""></a></li>
+					<li><a href="">一键登录</a></li>
+				</ul>
+				<ul class="phone">
+					<li><a href=""><img src="./images/666.png" alt=""></a></li>
+					<li><a href="">手机版</a></li>
+				</ul>
+			</div>
+			<div class="search">
+				<input type="text" class="search" placeholder="9月夹3000娃娃">
+			</div>
+			<div class="search1"></div>
+		</div>
+		<div class="head-list">
+			 <ul class="clearfix">
+			 	<li><a href="">首页</a></li>
+			 	<li><a href="">首页</a></li>
+			 	<li><a href="">首页</a></li>
+			 	<li><a href="">首页</a></li>
+			 	<li><a href="">首页</a></li>
+			 	<li><a href="">首页</a></li>
+			 </ul>
+		</div>
+	</div>
+	<div class="content clearfix">
+		<div class="left  clearfix">
+			<div class="bar">
+				<ul class="clearfix">
+				 	<li><a href="">电影.订座</a></li>
+				 	<li><a href="">电影.订座</a></li>
+				 	<li><a href="">电影.订座</a></li>
+				 	<li><a href="">电影.订座</a></li>
+				 	<li><a href="">电影.订座</a></li>
+				 	<li><a href="">电影.订座</a></li>
+			    </ul>
+			</div>
+			 <div class="bar-list clearfix">
+			 	<div class="bar-left">
+			 		<img src="./images/88.png" alt="">
+			 	</div>
+			 	<div class="cenmar">
+           <ul >
+             <li>
+               <ul class="img-box">
+                 <li><img src="./images/1010.jpg" alt=""></li>
+                 <li><img src="./images/1010.jpg" alt=""></li>
+                 <li><img src="./images/1010.jpg" alt=""></li>
+                </ul>
+             </li>
+             <li>
+               <ul class="img-box" >
+                 <li><img src="./images/1111.jpg" alt=""></li>
+                 <li><img src="./images/1010.jpg" alt=""></li>
+                 <li><img src="./images/1010.jpg" alt=""></li>
+              </ul>
+             </li>
+             <li>
+               <ul class="img-box">
+                 <li><img src="./images/1111.jpg" alt=""></li>
+                 <li><img src="./images/1010.jpg" alt=""></li>
+                 <li><img src="./images/1010.jpg" alt=""></li>
+              </ul>
+             </li>
+             <li>
+               <ul class="img-box">
+                  <li><img src="./images/1111.jpg" alt=""></li>
+                  <li><img src="./images/1111.jpg" alt=""></li>
+                  <li><img src="./images/1010.jpg" alt=""></li>
+               </ul>
+             </li>
+             <li>
+               <ul class="img-box">
+               <li><img src="./images/1111.jpg" alt=""></li>
+               <li><img src="./images/1010.jpg" alt=""></li>
+               <li><img src="./images/1010.jpg" alt=""></li>
+             </ul>
+             </li>
+             
+             
+           </ul>   
+        </div>
+         <div class="bar-right">
+          <img src="./images/99.png" alt="">
+        </div>
+        <div class="area">
+          <ul>
+            <li><a href="">吉林</a></li>
+            <li><a href="">选影院</a></li>
+            <li><a href="">选影片</a></li>
+          </ul>
+        </div>
+        <div class="area1">
+          <a href=" ">选座订票</a>
+        </div>
+			 </div> 
+		</div>
+    <div class="right">
+      <div>
+          <h2>睡觉流口水竟然暗示这些疾病的发生</h2>
+          <ul>
+              <li><a href="">上班族坐姿歪致失眠</a></li>
+              <li class="line"></li>
+              <li><a href="">秋乏多吃碱性食物</a></li>
+              <li class="line"></li>
+              <li><a href="">喝酒脸红咋解决</a></li>
+          </ul>
+     </div> 
+      <div class="right1">
+        <h2>睡觉流口水竟然暗示这些疾病的发生</h2>
+        <ul>
+            <li><a href="">上班族坐姿歪致失眠</a></li>
+            <li class="line"></li>
+            <li><a href="">秋乏多吃碱性食物</a></li>
+            <li class="line"></li>
+            <li><a href="">喝酒脸红咋解决</a></li>
+        </ul>
+      </div>
+      <div class="line1"></div>
+    </div>
+    <div class="right-content">
+       <ul>
+         <li><a href="">三招帮你把办公室变成减压中心</a></li>
+         <li><a href="">三招帮你把办公室变成减压中心</a></li>
+       </ul>
+       <ul>
+         <li><a href="">三招帮你把办公室变成减压中心</a></li>
+         <li><a href="">三招帮你把办公室变成减压中心</a></li>
+       </ul>
+       <ul>
+         <li><a href="">三招帮你把办公室变成减压中心</a></li>
+         <li><a href="">三招帮你把办公室变成减压中心</a></li>
+       </ul>
+       <ul>
+         <li><a href="">三招帮你把办公室变成减压中心</a></li>
+         <li><a href="">三招帮你把办公室变成减压中心</a></li>
+       </ul>
+
+    </div>
+	</div>
+  <div class="bottom">
+    <div class="bottom-nav nav-ab">
+     <div class="clearfix">
+         <ul class=" clearfix">
+          <li class="hot"><a href="">热门</a></li>
+          <li><a href="">本地</a></li>
+          <li><a href="">养生</a></li>
+          <li><a href="">女性</a></li>
+          <li><a href="">美食</a></li>
+         </ul>
+     </div>
+     
+      <div class="tab clearfix">
+        <div class="tab-left"></div>
+        <div>
+          <ul class="tab-img clearfix">
+            <li><a href=""><img src="./images/999.jpg" alt=""></a></li>
+            <li><a href=""><img src="./images/888.jpg" alt=""></a></li>
+          </ul>
+        </div>
+          
+          <div class="tab-right"></div>
+      </div>
+    </div>
+    <div class="bottom-content">
+      <div class="bottom-item">
+     
+          <!-- <div class="img">
+            <img src="./images/123.JPEG" alt="">
+          </div>
+         <div class="img-content">
+           <h2 class="clearfix">未来，不会有人觉得房价贵，而是......</h2>
+           <p>来源：米筐投资（mikuangtouzi）最近看香港TVB拍的《使徒行者2》后，觉得不过瘾，于是把第一部也回看了。讲真，两部戏真是TVB时装警匪剧的一个里程碑。剧情吸引人，演...</p>
+          <a href="">[详情]</a> 
+          <p>来源: 凤凰网</p>
+         </div> -->
+      
+
+      
+     </div>
+       <div class="adv">
+          <div class="cheap">
+               <h2>每日优惠</h2>
+               <div class="cheap-list">
+                 <div>
+                   <a href="">笑着呢 30元代金券</a>
+                  </div>
+                  <div>
+                    <a href="">笑着呢 30元代金券</a>
+                  </div>
+                   <div>
+                   <a href="">笑着呢 30元代金券</a>
+                  </div>
+               </div>
+          </div>
+       </div>
+    </div>
+  </div>
+  <script>
+     $(function(){
+          function goLeft(){
+            $(".cenmar>ul").stop(true,true).animate({
+               marginLeft:"-=400px",
+            },500,function(){
+              var first = $(".cenmar>ul>li").first();
+              var last = $(".cenmar>ul>li").last();
+             first.insertAfter(last);
+             $(".cenmar>ul").css("margin-left","-400px");
+            })
+          }
+          function goRight(){
+            $(".cenmar>ul").stop(true,true).animate({
+               marginLeft:"+=400px",
+            },500,function(){
+              var first = $(".cenmar>ul>li").first();
+              var last = $(".cenmar>ul>li").last();
+             last.insertBefore(first);
+             $(".cenmar>ul").css("margin-left","-400px");
+            })
+          }
+          $(".bar-left").click(function(){
+            goLeft()
+          })
+          $(".bar-right").click(function(){
+            goRight()
+          })
+          function exportTimer(){
+            timer=setInterval(function(){
+              goLeft();
+            },200000);
+          }
+          exportTimer();
+          $(".bar-left").hover(
+            function(){
+              clearInterval(timer)
+            },
+            function(){
+              exportTimer();
+            }
+            )
+          $(".bar-right").hover(
+            function(){
+              clearInterval(timer)
+            },
+            function(){
+              exportTimer();
+            }
+            )
+     })
+     $(function(){
+        function goTeft(){
+          $(".tab-img").stop(true,true).animate({marginRight:"-=320px",},500,function(){
+            var first=$(".tab-img li").first();
+            var last =$(".tab-img li").last();
+            first.insertAfter(last);
+            $(".tab-img ").css("margin-left","-400px;")
+          })
+        };
+        function goTight(){
+              $(".tab-img").stop(true,true).animate({
+                 marginRight:"+=400px",
+              },500,function(){
+                var first = $(".tab-img li").first();
+                var last = $(".tab-img li").last();
+               last.insertBefore(first);
+               $(".tab-img ").css("margin-right","-400px");
+              })
+            };
+        $(".tab-left").click(function(){
+              goTeft()
+            })
+            $(".tab-right").click(function(){
+              goTight()
+            });
+            function exportTimer(){
+              timer=setInterval(function(){
+                goTeft();
+              },2000);
+            }
+            exportTimer();
+            $(".tab-left").hover(
+              function(){
+                clearInterval(timer)
+              },
+              function(){
+                exportTimer();
+              }
+              )
+            $(".tab-right").hover(
+            function(){
+              clearInterval(timer)
+            },
+            function(){
+              exportTimer();
+            }
+            )
+     })
+     $(function(){
+        $(window).scroll(function(){
+          
+          var bodyHeight=$("body").height();
+          var windowHeight=$(window).height();
+          var scrollHeight=$(window).scrollTop();
+          var  bottomNavOffsetTop = $(".bottom-nav").offset().top;
+
+          if(scrollHeight<=bottomNavOffsetTop){
+              $(".bottom-nav").addClass("nav-ab").removeClass("nav-fix")
+              console.log (bodyHeight,windowHeight,scrollHeight,bottomNavOffsetTop)   
+          }
+          else {
+          $(".bottom-nav").addClass("nav-fix").removeClass("nav-ab")
+          } 
+        })
+       })
+     $(function(){
+        $.ajax({
+          url:"http://test.zhituteam.com/index.php/home/api/getquestion",
+          type:"get",
+          dataType:"json",
+                data:{
+                  type:2,
+                  level:94,
+                  lesson:1360,
+                  question_flag:2,
+                },
+                success:function(res){
+                  var list = res.result.lists;
+                  var str="";
+ for(var i=0;i<list.length;i++){ str+="<div class='img'><img src='./images/123.JPEG'></div><div class='img-content'><h2>"+list[i].data.title+"</h2><p>来源：米筐投资（mikuangtouzi）最近看香港TVB拍的《使徒行者2》后，觉得不过瘾，于是把第一部也回看了。讲真，两部戏真是TVB时装警匪剧的一个里程碑。剧情吸引人，演...</p></div>"
+                  }
+                  console.log(list)
+                  $(".bottom-item").html(str);
+                },
+                error:function(res){
+
+                }
+        })
+      })
+</script>
+</body>
+</html>

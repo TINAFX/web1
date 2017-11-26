@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./js/jquery-3.2.0.min.js"></script>
+	<style>
+
+	</style>
+</head>
+<body>
+	<button name="all-secleted">全选</button>
+	<button name="cancel-selected">取消全选</button>
+	<button name="invert-selected">反选</button><br/><br/><br/>
+
+
+	<label for="ID1">A</label>
+	<input type="checkbox" id="ID1"><br/>
+	<label for="ID2">B</label>
+	<input type="checkbox" id="ID2"><br/>
+	<label for="ID3">C</label>
+	<input type="checkbox" id="ID3"><br/>
+	<label for="ID4">D</label>
+	<input type="checkbox" id="ID4"><br/>
+	
+<script>
+	$(function(){
+        $("button[name='all-secleted']").click(function(){
+                  $("input[type='checkbox']").prop({checked:true});
+        })
+        $("button[name='cancel-selected']").click(function(){
+
+        	$("input[type='checkbox']").prop({checked:false});
+        })
+        $("button[name='invert-selected']").click(function(){
+        	$("input[type='checkbox']").each(function(index,item){
+        		$(item).prop({checked:!$(item).prop("checked")})
+        	})
+        })
+	})
+</script>
+</body>
+</html>

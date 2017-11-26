@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<title>Document</title>
+	<style type="text/css">
+		html,body,h3,img,form,ul,li,h2 {
+			padding: 0;
+			margin: 0;
+			font-family: "Hiragino Sans GB","Hiragino Sans GB W3","Microsoft Yahei",STHeiti,SimSun,helvetica,arial,sans-serif;
+		}
+		a {
+			text-decoration: none;
+			color: #444;
+		}
+		em {
+			font-style: normal;
+		}
+		ul,li {
+			list-style: none;
+		}
+		.clearfix::after {
+			content: "";
+			clear : both;
+			height: 0;
+			display: block;
+		}
+		.header {
+			width: 100%;
+		    min-width: 1190px;
+		    position: relative;
+		    z-index: auto;
+		}
+		.head-bar {
+			width: 100%;
+		    height: 60px;
+		    background: #0aa770;
+		    border-bottom: 1px solid #099e6a;
+		}
+		.bar-content {
+			width: 1190px; 
+    		margin: 0 auto;
+		}
+		.bar-content .logo {
+			float: left;
+			overflow: hidden;
+		    height: 32px;
+		    padding: 14px 0;
+		}
+		.logo .logo1 {
+			float: left;
+		    width: 108px;
+		    height: 32px;
+		    background: url("./images/hao-logo.png");
+		}
+		.logo .logo2 {
+			margin-top: 0;
+			float: left;
+		    height: 26px;
+		    margin-left: 3px;
+		}
+		.bar-content .bar {
+			float: left;
+			position: relative;
+    		margin-left: 5px;
+		}
+		.bar .map {
+			float: left;
+		    height: 54px;
+		    line-height: 54px;
+		    padding: 6px 15px 0 25px;
+		    padding-top: 6px;
+		    opacity: .8;
+		}
+		.bar .map:hover {
+			background-color: rgba(17,136,96,.9);
+		}
+		.bar:hover .map-item {
+			display: block;
+		}
+		.bar .map .icon-grid {
+			position: absolute;
+		    height: 13px;
+		    width: 13px;
+		    left: 10px;
+		    top: 26px;
+		    background: url("./images/icon-grid.png") no-repeat 0 0;
+		}
+		.bar .map .icon-triangle, .login .key .icon-triangle {
+			position: absolute;
+		    height: 0;
+		    line-height: 0;
+		    right: 10px;
+		    top: 31px;
+		    border: 3px solid #0aa770;
+		    border-top-color: #fff;
+		}
+		.bar .map em {
+			margin: 0 3px;
+		    font-size: 18px;
+		    color: #fff;
+		    vertical-align: baseline;
+		    font-style: normal;
+		}
+		.bar .map-item {
+			position: absolute;
+		    z-index: 50;
+		    display: none;
+		    top: 60px;
+		    left: 0;
+		    padding: 15px;
+		    font-size: 12px;
+		    background-color: rgba(17,136,96,.9);
+		}
+		.bar .map-item .item {
+			position: relative;
+		    width: 190px;
+		    padding-top: 10px;
+		    padding-bottom: 8px;
+		    border-bottom: 1px solid #099e6a;
+		    overflow: hidden;
+		    padding-top: 0;
+		}
+		.bar .map-item .item.first {
+			padding-top: 0;
+		}
+		.bar .map-item .item.last {
+			border: 0;
+    		padding-bottom: 0;
+		}
+		.map-item .item .tittle {
+			position: absolute;
+			font-size: 100%;
+    		font-weight: 400;
+    		line-height: 20px;
+		    left: 0;
+		    top: 30px;
+		    height: 40px;
+		    width: 33px;
+		    color: #fff;
+		}
+		.map-item .item .list {
+			width: 160px;
+			float: right;
+		}
+		.map-item .item .list a {
+			font-size: 12px;
+			height: 20px;
+		    line-height: 20px;
+		    display: inline-block;
+		    text-align: center;
+		    width: 36px;
+		    white-space: nowrap;
+		    color: #fff;
+		    margin-bottom: 4px;
+		}
+		.map-item .item .list a:hover {
+			text-decoration: underline;
+			background: #0aa770;
+		}
+		.search-box {
+			float: right;
+			width: 380px;
+		    height: 32px;
+		    position: relative;
+		    top: 14px;
+		}
+		.clearfix {
+    		zoom: 1;
+		}
+		.search-box .search-form {
+			position: relative;
+		}
+		.search-form .text {
+			float: left;
+		    width: 280px;
+		    border: 0;
+		    padding: 5px 10px;
+		    font-size: 14px;
+		    height: 22px;
+		    line-height: 22px;
+		    background-color: #fff;
+		    color: #333;
+		}
+		.search-form .submit {
+			float: left;
+		    width: 80px;
+		    height: 32px;
+		    border: 0;
+		    padding: 0;
+		    background-image: url("./images/search-submit.png");
+		    background-repeat: no-repeat;
+		    background-position: 0 0;
+		    background-color: #118860;
+		}
+		.tool {
+			float: right;
+			font-size: 12px
+		}
+		.tool .login {
+			position: relative;
+    		height: 60px;
+			margin-right: 0;
+			float: left;
+    		opacity: .8;
+		}
+		.tool .login:hover .popup {
+			display: block;
+		}
+		.tool .login:hover {
+			background-color: rgba(17,136,96,.9);
+		}
+		.tool .login .key {
+			float: left;
+		    height: 22px;
+		    padding: 19px 10px;
+		    padding-right: 6px;
+		    padding-top: 18px;
+		    cursor: pointer;
+		}
+		.login .key .icon-bear {
+			float: left;
+			width: 13px;
+		    height: 13px;
+		    margin-top: 4px;
+		    background: url("./images/bear.png") no-repeat 0 0;
+		}
+		.login .key .name {
+			float: left;
+			width: 55px;
+		    text-align: center;
+		    height: 22px;
+		    line-height: 22px;
+		    color: #fff;
+		    font-weight: 400;
+		}
+		.tool .login .key .icon-triangle {
+			float: left;
+			display: block;
+		}
+		.tool .login .popup {
+			width: 104px;
+		    display: none;
+		    position: absolute;
+		    z-index: 50;
+		    left: 0;
+		    top: 60px;
+		    background-color: rgba(17,136,96,.9);
+		}
+		.tool .login .popup a {
+			display: block;
+		    height: 40px;
+		    line-height: 40px;
+		    white-space: nowrap;
+		}
+		.tool .login .popup .vip i {
+			float: left;
+		    width: 15px;
+		    height: 13px;
+		    margin-left: 10px;
+		    margin-right: 5px;
+		    margin-top: 14px;
+		    background: url("./images/vip.png") no-repeat 0 0;
+		}
+		.tool .login .popup a em {
+			color: #fff;
+		}
+		.tool .login .popup .logout em {
+			padding-left: 30px;
+		}
+		.tool .qrcode {
+			position: relative;
+    		width: 60px;
+    		height: 60px;
+    		margin-right: 10px;
+    		float: left;
+    		opacity: .8;
+		}
+		.tool .qrcode:hover {
+			background-color: rgba(17,136,96,.9);
+		}
+		.tool .qrcode:hover .qrcode-img {
+			display: block;
+		}
+		.tool .qrcode a {
+			display: block;
+		    width: 60px;
+		    height: 60px;
+		    line-height: 58px;
+		    color: #fff;
+		    padding-right: 4px;
+		}
+		.tool .qrcode i {
+			float: left;
+		    width: 14px;
+		    height: 14px;
+		    margin-top: 22px;
+		    margin-left: 5px;
+		    background: url("./images/qrcode.png");
+		}
+		.tool .qrcode .qrcode-img {
+			display: none;
+		    position: absolute;
+		    width: 80px;
+		    z-index: 9999;
+		    top: 60px;
+		    left: 50%;
+		    margin-left: -48px;
+		    padding: 10px;
+		    background: rgba(17,136,96,.9);
+		}
+		.tool .qrcode .qrcode-img img {
+			z-index: 9999;
+			width: 80px;
+    		height: 80px;
+    		border: 0 none;
+    		vertical-align: middle;
+		}
+		.tool .home {
+			width: 24px;
+		    height: 60px;
+		    position: relative;
+		    float: left;
+		    opacity: .8;
+		    margin-right: 20px;
+		}
+		.tool .home:hover {
+			background-color: rgba(17,136,96,.9);
+		}
+		.tool .home i {
+			float: left;
+		    width: 14px;
+		    height: 14px;
+		    margin-top: 22px;
+		    margin-left: 5px;
+		    background: url("./images/home.png");
+		}
+		.head-list {
+			height: 40px;
+    		background: #0aa770;
+		}
+		.head-list .list-content {
+			width: 1190px;
+		    margin: 0 auto;
+		    overflow: hidden;
+		    height: 40px;
+		}
+		.list-content .left, .list-content .left ul, .list-content .left li{
+			float: left;
+		}
+		.list-content .left .first {
+			background-color: #118860;
+		}
+		.list-content .left .first a {
+			cursor: default;
+		}
+		.list-content .left li a {
+			float: left;
+		    height: 40px;
+		    line-height: 40px;
+		    padding: 0 10px;
+		    color: #fff;
+		    font-size: 16px;
+		}
+		.list-content .left li:hover {
+			background: rgba(0,0,0,0.05 );
+		}
+		.list-content .right {
+			float: right;
+			height: 22px;
+		    line-height: 22px;
+		    text-align: center;
+		    overflow: hidden;
+		    width: 200px;
+		    position: relative;
+		    margin-top: 10px;
+		}
+		.list-content .right ul {
+			overflow: hidden;
+		    position: relative;
+		    height: 22px;
+		    width: 200px;
+		}
+		.list-content .right li {
+		    text-align: left;
+		    width: 200px;
+		    white-space: nowrap;
+		    overflow: hidden;
+		    float: left;
+		    margin-top: 0;
+		    height: 22px;
+		}
+		.list-content .right li a {
+			font-size: 12px;
+		    font-family: Simsun;
+		    color: black;
+		    display: inline-block;
+		    width: 200px;
+		    text-align: right;
+		}
+		.top-bar {
+			margin: 0 auto;
+		    display: block;
+		    width: 100%;
+		    min-width: 1190px;
+		    position: relative;
+		    height: 345px;
+		    z-index: 9;
+		    background: #d0d0d0;
+		}
+		.top-bar .left {
+			position: absolute;
+		    height: 300px;
+		    left: 50%;
+		    top: 20px;
+		    margin-left: -595px;
+		    width: 670px;
+		    padding: 0;
+    		background-color: #fff;
+		}
+		.top-bar .left .left-content {
+			white-space: normal;
+		    text-align: left;
+		    width: 670px;
+		    height: 305px;
+		    position: absolute;
+		    left: 0;
+		    z-index: 1000;
+		    border: 1px solid black;
+		    top: 0;
+		}
+		.left .left-content .tabs {
+			width: 124px;
+		    height: 305px;
+		    background-color: #0aa770;
+		    font-size: 15px;
+		    font-family: 'Microsoft YaHei',SimHei,arial;
+		    color: #fff;
+		    float: left;
+		    overflow-y: hidden;
+		}
+		.tabs .tab {
+			width: 124px;
+		    height: 50px;
+		    line-height: 50px;
+		    white-space: nowrap;
+		    position: relative;
+		}
+		.tabs .tab .tab-word {
+		    display: block;
+		    font-size: 16px;
+		    font-family: "Microsoft Yahei";
+		    width: 100%;
+		    text-indent: 15px;
+		    position: absolute;
+		    height: 50px;
+		    line-height: 50px;
+		    color: #fff;
+		}
+		.tabs .tab .tab-word:hover {
+			background-color: #fff;
+		    color: #3cb43c;
+		}
+		.tabs .tab .tab-word.twa {
+			background-color: #fff;
+		    color: #3cb43c;
+		    top: -1px;
+		    height: 52px;
+		    line-height: 52px;
+		}
+		.tabs .tab .tab-word .twa .hot-icon {
+			position: absolute;
+		    top: 5px;
+		    right: 8px;
+		    width: 18px;
+		    border: 1px solid red;
+		    height: 10px;
+		    display: block;
+		    background-position: -17px -417px;
+		    background: url("./images/aio-3.png");
+		    background-repeat: no-repeat;
+		}
+		.tabs .line {
+			border-bottom: 1px dashed #049a66;
+		    width: 94px;
+		    margin-left: 16px;
+		    height: 0;
+		    font-size: 0;
+		    clear: both;
+		    overflow: hidden;
+		}
+		.left-content .search-news {
+			width: 546px;
+		    height: 305px;
+		    float: left;
+		}
+		.search-news .search {
+			width: 546px;
+		    height: 305px;
+		    float: left;
+		    background-color: #fff;
+		}
+		.search-news .search .search-tab {
+			padding: 15px 20px 20px;
+    		position: relative;
+		}
+		.search-tab .s-top {
+			width: 506px;
+		    height: 170px;
+		    position: relative;
+		    margin-bottom: 20px;
+		    border: 1px solid #888;
+		}
+		.s-top .contral {
+			position: absolute;
+		    top: 50%;
+		    margin-top: -30px;
+		    width: 22px;
+		    height: 58px;
+		    border: 1px solid #d0d0d0;
+		    background-color: #fff;
+		}
+		.s-top .contral.contral-left {
+			left: 0;
+		}
+		.s-top .contral.contral-right {
+			right: 0;
+		}
+		.s-top .contral i {
+			position: absolute;
+		    width: 9px;
+		    height: 17px;
+		    top: 50%;
+		    margin-top: -8px;
+		    left: 50%;
+		    margin-left: -4px;
+		    background-image: url("./images/aio.png");
+			background-repeat: no-repeat;
+
+		}
+		.s-top .contral.contral-left i {
+			background-position: -22px -40px;
+		}
+		.s-top .contral.contral-right i {
+			background-position: -22px -77px;
+		}
+		.search-tab .s-top .view {
+			width: 450px;
+		    height: 170px;
+		    margin: 0 auto;
+		    overflow: hidden;
+		    position: relative;
+		}
+		.search-tab .s-top .view .move-list {
+			width: 3150px;
+			margin-left: -450px;
+		}
+		.clearfix::before {
+			content: "";
+    		display: table;
+		}
+		.search-tab .s-top .view .move-list li {
+			float: left;
+		    padding: 0 10px;
+		    width: 430px;
+		}
+		.search-tab .s-top .view .move-list li img {
+			width: 130px;
+			height: 170px;
+			padding: 0 5px;
+			vertical-align: bottom;
+		}
+		.srarch-tab .s-buttom {
+			margin-top: 20px;
+		}
+		.srarch-tab .s-buttom .b-top {
+			position: relative;
+		}
+		.s-buttom .b-top .city {
+			width: 70px;
+		}
+		.s-buttom .b-top .cinema {
+			width: 200px;
+		}
+		.s-buttom .b-top .moves {
+			width: 155px;
+		}
+		.s-buttom .b-top .city, .s-buttom .b-top .cinema, .s-buttom .b-top .moves {
+			float: left;
+			text-indent: 3px;
+			margin-right: 10px;
+		    display: inline;
+		    cursor: pointer;
+		    height: 28px;
+		    line-height: 28px;
+		    border: 1px solid #888;
+		    color: #222;
+		    position: relative;
+		}
+		.s-buttom .b-top .city span {
+			cursor: pointer;
+		    text-indent: 3px;
+		    float: left;
+		    overflow: hidden;
+		    white-space: nowrap;
+		}
+		.s-buttom .b-top .city span{
+			width: 50px;
+		}
+		.s-buttom .b-top .city .go-down {
+			position: relative;
+		}
+		.s-buttom .b-top .city i, .s-buttom .b-top .cinema i, .s-buttom .b-top .moves i {
+			position: absolute;
+		    right: 5px;
+		    top: 4px;
+		    width: 20px;
+		    height: 20px;
+		    background-image: url("./images/aio.png");
+		    background-repeat: no-repeat;
+		    background-position: -11px 0px;
+		}
+		.s-buttom .b-top .city .city-news {
+			top: 29px;
+		    left: 20px;
+		    width: 560px;
+		    height: 180px;
+		    position: absolute;
+		    z-index: 1100;
+		    background-color: #fcfcfc;
+		    font-size: 14px;
+		    border: 1px solid #888;
+		    display: none;
+		}
+		.s-buttom .b-top .cinema .cinema-news {
+			width: 710px;
+			height: 420px;
+			top: 29px;
+		    left: 20px;
+		    border: 1px solid #0aa770;
+		    position: absolute;
+		    z-index: 1100;
+		    background-color: #fff;
+		    font-size: 14px;
+		    display: none;
+		}
+		.s-buttom .b-top .moves .moves-news {
+			width: 592px;
+			border: 1px solid black;
+		    height: 320px;
+		    overflow-y: auto;
+		    overflow-x: hidden;
+		    position: absolute;
+		    z-index: 1100;
+		    background-color: #d0d0d0;
+		    font-size: 14px;
+		    display: none;
+		}
+		.s-buttom .b-top .city .go-down:hover .city-news, .s-buttom .b-top .cinema .go-down:hover .cinema-news, .s-buttom .b-top .moves .go-down:hover .moves-news {
+			display: block;
+		}
+		.s-buttom .b-buttom {
+			padding-top: 20px;
+    		position: relative;
+		}
+		.s-buttom .b-buttom .group {
+			text-align: right;
+		    height: 32px;
+		    line-height: 32px;
+		    float: right;
+		}
+		.s-buttom .b-buttom .group>span {
+			margin-right: 20px;
+		    color: #f40;
+		    font-size: 16px;
+		    display: inline-block;
+		    height: 32px;
+		    line-height: 32px;
+		    vertical-align: baseline;
+		}
+		.s-buttom .b-buttom .group .btn {
+			display: inline-block;
+		    width: 80px;
+		    height: 32px;
+		    line-height: 32px;
+		    background-color: #ff6d00;
+		    color: #fff;
+		    font-size: 12px;
+		    text-decoration: none;
+		    text-align: center;
+		    vertical-align: top;
+		}
+		.top-bar .right {
+			position: absolute;
+		    left: 50%;
+		    top: 20px;
+		    margin-left: 115px;
+		    width: 480px;
+		    height: 300px;
+		    overflow: hidden;
+		    background: #fff;
+		}
+		.top-bar .right .top{
+			width: 100%;
+		    height: 160px;
+		    border-bottom: 1px dashed #ccc;
+		}
+		.top-bar .right .top .top-content {
+			position: relative;
+		    overflow: hidden;
+		    width: 100%;
+		}
+		.top-bar .right .top .top-content a {
+			font-size: 14px;
+		    font-family: Simsun;
+		    color: #666;
+		}
+		.top-bar .right .top .top-content .tc-title {
+			font-size: 22px;
+		    font-family: "Microsoft Yahei";
+		    line-height: 38px;
+		    height: 38px;
+		    color: #333;
+		    cursor: pointer;
+		    display: block;
+		    margin-top: 7px;
+		}
+		.top-bar .right .top .top-content .tc-title:hover {
+			color: #f50;
+		}
+		.top-bar .right .top .top-content .ta:hover {
+			color: #f50;
+			text-decoration: underline;
+		}
+		.top-bar .right .top .top-content .top-line {
+			position: relative;
+		    margin: 0 10px;
+		    width: 1px;
+		    border-left: 1px solid #ccc;
+		}
+		.top-bar .right .top .top-content .t-hot, .buttom .buttom-content .t-hot {
+			color: #f50;
+		}
+		.top-bar .right .top .top-content .t-hot .hot, .buttom .buttom-content .t-hot .hot {
+			display: inline-block;
+		    background: #f55000;
+		    margin-left: 4px;
+		    width: 15px;
+		    height: 15px;
+		    text-align: center;
+		    line-height: 15px;
+		    color: #fff;
+		}
+		.buttom .buttom-content {
+			width: 100%;
+		    height: 150px;
+		    margin-left: -20px;
+		    padding-top: 11px;
+		    overflow: hidden;
+		}
+		.buttom .buttom-content a {
+			font-size: 14px;
+		    font-family: Simsun;
+		    line-height: 32px;
+		    color: #666;
+		    margin-left: 20px;
+		    float: left;
+		    height: 32px;
+		    width: 220px;
+		    overflow: hidden;
+		}
+		.buttom .buttom-content a:hover {
+			color: #f50;
+			text-decoration: underline;
+		}
+		.content .index {
+			background: #fff;
+			width: 1190px;
+		    margin: 0 auto;
+		    border: 0 none;
+		    position: relative;
+		}
+		.content .index .wrap {
+			width: 1190px;
+		    background-color: #fff;
+		    padding: 20px 0;
+		}
+		.wrap .c-left {
+			margin-right: 10px;
+		    float: left;
+		    width: 915px;
+		}
+		.c-left .l-tabs {
+			position: absolute;
+		    top: 20px;
+		    left: 0;
+		    width: 915px;
+		    height: 50px;
+		    background: #0aa770;
+		}
+		.l-tabs .l-tabs-list {
+			padding-top: 4px;
+		}
+		.l-tabs .l-tabs-list a {
+			float: left;
+		    width: 72px;
+		    height: 46px;
+		    font-size: 16px;
+		    font-family: "Microsoft YaHei";
+		    line-height: 46px;
+		    text-align: center;
+		    color: #fff;
+		}
+		.l-tabs .l-tabs-list .One {
+			width: 71px;
+		    border-left: solid 1px #e9e9e9;
+		    color: #333;
+		    background: #fff;
+		}
+		.c-left .l-news {
+			padding-top: 60px;
+		}
+		.n-item {
+			padding: 15px 0;
+		    height: 125px;
+		    border-bottom: dashed 1px #eaeaea;
+		    overflow: hidden;
+		}
+		.n-item .item-l {
+			float: left;
+		    margin-right: 20px;
+		    width: 150px;
+		    height: 112px;
+		}
+		.n-item .item-l img {
+			width: 148px;
+		    height: 110px;
+		    border: solid 1px #e9e9e9;
+		}
+		.n-item .item-r {
+			float: left;
+		    width: 700px;
+		    height: 112px;
+		    color: #999;
+		}
+		.n-item .item-r .title {
+			display: block;
+		    height: 32px;
+		    font-size: 22px;
+		    font-family: "Microsoft Yahei";
+		    line-height: 32px;
+		    color: #333;
+		    white-space: nowrap;
+		    overflow: hidden;
+		}
+		.n-item .item-r .title .icon-hot {
+			float: left;
+		    margin-right: 5px;
+		    width: 35px;
+		    height: 31px;
+		    background-repeat: no-repeat;
+		    background-position: 0px -447px;
+		    background-image: url("./images/aio-3.png");
+		}
+		.n-item .item-r .intro {
+			display: block;
+		    height: 48px;
+		    overflow: hidden;
+		    font-size: 12px;
+		    font-family: Simsun;
+		    line-height: 24px;
+		}
+		.n-item .item-r .intro .more {
+			color: #0053a5;
+		}
+		.n-item .item-r .from {
+			font-size: 12px;
+			line-height: 24px;
+		}
+		.wrap .c-right {
+			float: right;
+		    width: 265px;
+		    position: relative;
+		    height: 3707px;
+		}
+		.c-right .slide {
+			width: 270px;
+		    height: 130px;
+		    overflow: hidden;
+		    position: relative;
+		}
+		.s-left, .s-right {
+			width: 22px;
+		    height: 50px;
+		    position: absolute;
+		    background: #000;
+		    opacity: .4;
+		    text-align: center;
+		    top: 45px;
+		    cursor: pointer;
+		}
+		.s-left {
+			left: 0;
+		}
+		.s-right {
+			right: 0;
+		}
+		.s-left i, .s-right i {
+			width: 9px;
+		    height: 17px;
+		    display: inline-block;
+		    margin-top: 16px;
+		}
+		.s-left i {
+			background: url("./images/a-left.png");
+		}
+		.s-right i {
+			background: url("./images/a-right.png");
+		}
+		.slide .tu {
+			width: 270px;
+		    height: 130px;
+		    margin: 0 auto;
+		    overflow: hidden;
+		    position: relative;
+		}
+		.slide .tu .tu-list li {
+			width: 270px;
+		    height: 130px;
+		    cursor: pointer;
+			position: absolute;
+		    display: block;
+		    left: 0;
+		}
+		.c-right .banner {
+			width: 270px;
+		    height: 150px;
+		    border-top: 1px dashed #ccc;
+		    border-bottom: 1px dashed #ccc;
+		    margin-top: 10px;
+		    position: relative;
+		    overflow: hidden;
+		    background: #f4f4f4;
+		    padding-bottom: 20px;
+		    margin-bottom: 20px;
+		}
+		.c-right .banner h2 {
+			width: 78px;
+		    height: 30px;
+		    line-height: 30px;
+		    color: #fff;
+		    font-size: 14px;
+		    border-radius: 20px;
+		    background: #f94977;
+		    font-family: Simsun;
+		    text-align: center;
+		    margin: 20px 0 0 18px;
+		}
+		.banner .wrapper {
+			position: relative;
+		    margin-top: 10px;
+		    width: 270px;
+		    height: 110px;
+		    /*overflow: hidden;*/
+		}
+		.banner .word1 {
+			/*position: absolute;*/
+		    display: block;
+		    /*left: 0px;*/
+		    margin-top: 0;
+		    width: 270px;
+		    height: 110px;
+		}
+		.banner .word1 .text {
+			padding-left: 20px;
+		}
+		.banner .word1 .text span {
+			color: #666;
+		    font-size: 14px;
+		    font-family: Simsun;
+		    line-height: 30px;
+		}
+		.banner .word1 .text a {
+		    color: #fff;
+		    float: right;
+		    width: 40px;
+		    height: 25px;
+		    line-height: 25px;
+		    text-align: center;
+		    border-radius: 20px;
+		    margin-right: 20px;
+		    background: #f94977;
+		}
+		.banner .icon2 {
+			z-index: 90;
+		    width: 100%;
+		    height: 10px;
+		    margin-top: -22px;
+		    text-align: center;
+		    position: absolute;
+		}
+		.banner .icon2 span {
+			width: 6px;
+		    height: 6px;
+		    border-radius: 6px;
+		    margin: 0 4px;
+		    background: #aaa;
+		    display: inline-block;
+		    cursor: pointer;
+		}
+		.banner .icon2 .active {
+			background: #666;
+		}
+		.c-right .search-last {
+			width: 270px;
+		    height: 620px;
+		    background: #f4f4f4;
+		    border: 1px solid #888;
+		    margin-bottom: 20px;
+		}
+		.c-right .search-last .normal-search .s-one {
+			padding-left: 10px;
+		    padding-top: 20px;
+		    margin-bottom: 20px;
+		}
+		.c-right .search-last .normal-search .s-one i {
+			float: left;
+		    background: url("./images/icon1.png") no-repeat;
+		    width: 113px;
+		    height: 38px;
+		}
+		.c-right .search-last .normal-search .s-one a {
+			float: right;
+		    margin-right: 20px;
+		    font-family: Simsun;
+		    font-size: 12px;
+		    color: #666;
+		    margin-top: 4px;
+		}
+		.c-right .search-last .normal-search .s-tow {
+			margin-top: 44px;
+		    width: 100%;
+		    height: 90px;
+		    position: relative;
+		    overflow: hidden;
+		}
+		.s-tow .icon-page {
+			width: 600px;
+			display: block;
+		    height: 80px;
+		    overflow: hidden;
+		}
+		.s-tow .icon-page li {
+			float: left;
+			margin-left: -262px;
+			width: 252px;
+		    height: 80px;
+		    margin-left: 0;
+		    padding-left: 10px;
+		    overflow: hidden;
+		}
+		.s-tow .icon-page li a {
+			width: 80px;
+		    height: 80px;
+		    text-align: center;
+		    display: inline-block;
+		}
+		.s-tow .icon-page li a p {
+			font-size: 14px;
+		    font-family: Simsun;
+		    margin-top: 10px;
+		}
+		.s-tow .i-left, .s-tow .i-right {
+			width: 20px;
+		    height: 38px;
+		    position: absolute;
+		    background: #d9d9d9;
+		    text-align: center;
+		    top: 20px;
+		    cursor: pointer;
+		    z-index: 90;
+		}
+		.s-tow .i-left {
+			left: 0;
+		}
+		.s-tow .i-right {
+			right: 0;
+		}
+		.s-tow .i-left i, .s-tow .i-right i {
+			width: 8px;
+		    height: 16px;
+		    display: inline-block;
+		    margin-top: 12px;
+		}
+		.s-tow .i-left i {
+			background: url("./images/i-left.png");
+		}
+		.s-tow .i-right i {
+			background: url("./images/i-right.png");
+		}
+		.i-line {
+			margin: 10px 20px 15px;
+		    border-top: 1px dashed #ccc;
+		    height: 1px;
+		}
+		.s-three {
+			width: 100%;
+		    height: 114px;
+		    padding-left: 8px;
+		    margin-top: -6px;
+		    overflow: hidden;
+		}
+		.s-three a {
+			width: 88px;
+		    overflow: hidden;
+		    font-size: 14px;
+		    line-height: 28px;
+		    font-family: Simsun;
+		    color: #666;
+		    float: left;
+		    text-align: center;
+		}
+		.s-three a:hover {
+			color: #f50;
+			text-decoration: underline;
+		}
+		.banner .word1.hide {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="head-bar">
+			<div class="bar-content clearfix">
+				<div class="logo">
+					<a class="logo1" href="http://www.hao123.com"></a>
+					<a closs="logo2" href="http://life.hao123.com">
+						<img src="./images/hao.png">
+					</a>
+				</div>
+				<div class="bar">
+					<a href="#" class="map">
+						<i class="icon-grid"></i>
+						<em>导航</em>
+						<i class="icon-triangle"></i>
+					</a>
+					<div class="map-item">
+						<div class="item first">
+							<h3 class="tittle">休闲娱乐</h3>
+							<div class="list clearfix">
+								<a href="http://www.hao123.com">电影</a>
+								<a href="http://www.hao123.com">电影</a>
+								<a href="http://www.hao123.com">电影</a>
+								<a href="http://www.hao123.com">电影</a>
+								<a href="http://www.hao123.com">电影</a>
+								<a href="http://www.hao123.com">电影</a>
+								<a href="http://www.hao123.com">电影</a>
+								<a href="http://www.hao123.com">电影</a>
+								<a href="http://www.hao123.com">电影</a>
+								<a href="http://www.hao123.com">电影</a>
+								<a href="http://www.hao123.com">电影</a>
+								<a href="http://www.hao123.com">电影</a>
+								<a href="http://www.hao123.com">电影</a>
+								<a href="http://www.hao123.com">电影</a>
+								<a href="http://www.hao123.com">电影</a>
+							</div>
+						</div>
+						<div class="item">
+							<h3 class="tittle">生活服务</h3>
+							<div class="list clearfix">
+								<a href="http://www.hao123.com">团购</a>
+								<a href="http://www.hao123.com">银行</a>
+								<a href="http://www.hao123.com">房产</a>
+								<a href="http://www.hao123.com">军事</a>
+								<a href="http://www.hao123.com">团购</a>
+								<a href="http://www.hao123.com">银行</a>
+								<a href="http://www.hao123.com">房产</a>
+								<a href="http://www.hao123.com">军事</a>
+								<a href="http://www.hao123.com">团购</a>
+								<a href="http://www.hao123.com">银行</a>
+								<a href="http://www.hao123.com">房产</a>
+								<a href="http://www.hao123.com">军事</a>
+								<a href="http://www.hao123.com">团购</a>
+								<a href="http://www.hao123.com">银行</a>
+								<a href="http://www.hao123.com">房产</a>
+								<a href="http://www.hao123.com">军事</a>
+							</div>
+						</div>
+						<div class="item last">
+							<h3 class="tittle">生活服务</h3>
+							<div class="list clearfix">
+								<a href="http://www.hao123.com">软件</a>
+								<a href="http://www.hao123.com">邮箱</a>
+								<a href="http://www.hao123.com">微博</a>
+								<a href="http://www.hao123.com">公益</a>
+								<a href="http://www.hao123.com">软件</a>
+								<a href="http://www.hao123.com">邮箱</a>
+								<a href="http://www.hao123.com">微博</a>
+								<a href="http://www.hao123.com">公益</a>
+								<a href="http://www.hao123.com">软件</a>
+								<a href="http://www.hao123.com">邮箱</a>
+								<a href="http://www.hao123.com">微博</a>
+								<a href="http://www.hao123.com">公益</a>
+								<a href="http://www.hao123.com">软件</a>
+								<a href="http://www.hao123.com">邮箱</a>
+								<a href="http://www.hao123.com">微博</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="search-box">
+					<form class="search-form clearfix" action="//www.baidu.com/s">
+						<input type="text" class="text" placeholder="9个月夹300个娃娃">
+						<button type="submit" class="submit" ></button>
+					</form>
+				</div>
+				<div class="tool">
+					<div class="login">
+						<a href="#" class="key">
+							<i class="icon-bear"></i>
+							<em class="name">123喵</em>
+							<i class="icon-triangle"></i>
+						</a>
+						<div class="popup">
+							<a href="http://www.hao123.com" class="vip">
+								<i></i>
+								<em class="word">vip俱乐部</em>
+							</a>
+							<a href="http://www.hao123.com" class="logout">
+								<em class="word">退出</em>
+							</a>
+						</div>
+					</div>
+					<div class="qrcode">
+						<a href="http://www.hao123.com" tittle="二维码">
+							<i></i>手机版
+						</a>
+						<div class="qrcode-img">
+							<img src="./images/Erweima.png">
+						</div>
+					</div>
+					<a href="#" class="home">
+						<i></i>
+					</a>
+				</div>
+			</div>			
+		</div>
+		<div class="head-list">
+			<div class="list-content clearfix">
+				<div class="left">
+					<ul class="clearfix">
+						<li class="first"><a href="http://life.hao123.com">首页</a></li>
+						<li><a href="http://life.hao123.com">实用查询</a></li>
+						<li><a href="http://life.hao123.com">快递到家</a></li>
+						<li><a href="http://life.hao123.com">美食</a></li>
+						<li><a href="http://life.hao123.com">健康</a></li>
+						<li><a href="http://life.hao123.com">交通违章查询</a></li>
+					</ul>
+				</div>
+				<div class="right">
+					<ul>
+						<li><a href="http://life.hao123.com">库里扔牙套3五万</a></li>
+						<li class="hide"><a href="http://life.hao123.com">秋瓷炫怀孕</a></li>
+						<li class="hide"><a href="http://life.hao123.com">90后毕业写小说</a></li>
+						<li class="hide"><a href="http://life.hao123.com">澜沧江雪豹靓照</a></li>
+						<li class="hide"><a href="http://life.hao123.com">吴尊妻子露面</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="top-bar">
+		<div class="left">
+			<div class="left-content">
+				<ul class="tabs">
+					<li class="tab selected">
+						<a href="#" class="tab-word twa">电影·订座</a>
+						<i class="hot-icon"></i>
+					</li>
+					<li class="line"></li>
+					<li class="tab">
+						<a href="#" class="tab-word">美食·外卖</a>
+					</li>
+					<li class="line"></li>
+					<li class="tab">
+						<a href="#" class="tab-word">家政·按摩</a>
+					</li>
+					<li class="line"></li>
+					<li class="tab">
+						<a href="#" class="tab-word">机票·火车票</a>
+					</li>
+					<li class="line"></li>
+					<li class="tab">
+						<a href="#" class="tab-word">门票·度假</a>
+					</li>
+					<li class="line"></li>
+					<li class="tab">
+						<a href="#" class="tab-word">快递·查违章</a>
+					</li>
+				</ul>
+				<div class="search-news clearfix">
+					<div class="search">
+						<div class="search-tab">
+							<div class="s-top">
+								<a href="#" class="contral contral-left"><i></i></a>
+								<a href="#" class="contral contral-right"><i></i></a>
+								<div class="view">
+									<ul class="move-list clearfix">
+										<li>
+											<img src="./images/move1.png">
+											<img src="./images/move2.png">
+											<img src="./images/move3.png">
+										</li>
+										<li>
+											<img src="./images/move4.png">
+											<img src="./images/move5.png">
+											<img src="./images/move6.png">
+										</li>
+										<li>
+											<img src="./images/move7.png">
+											<img src="./images/move8.png">
+											<img src="./images/move9.png">
+										</li>
+									</ul>
+								</div>									
+							</div>
+							<div class="s-buttom">
+								<div class="b-top clearfix">
+									<div class="city">
+										<span>吉林</span>
+										<div class="go-down">
+											<i></i>
+											<div class="city-news"></div>
+										</div>
+									</div>
+									<div class="cinema">
+										<span>选影院</span>
+										<div class="go-down">
+											<i></i>
+											<div class="cinema-news"></div>
+										</div>
+									</div>
+									<div class="moves">
+										<span>选影片</span>
+										<div class="go-down">
+											<i></i>
+											<div class="moves-news"></div>
+										</div>
+									</div>
+								</div>
+								<div class="b-buttom clearfix">
+									<div class="group">
+										<span></span>
+										<a href="#" class="btn">选座订票</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="right">
+			<div class="top">
+				<div class="top-content">
+					<a class="tc-title" href="#">睡觉流口水竟然暗示这些疾病的发生</a>
+					<a class="ta" href="#">上班族坐姿歪致失眠</a>
+					<i class="top-line"></i>
+					<a class="ta t-hot" href="#">秋乏多吃碱性食物
+						<span class="hot">热</span>
+					</a>
+					<i class="top-line"></i>
+					<a class="ta" href="#">喝酒脸红咋解决</a>
+				</div>
+				<div class="top-content">
+					<a class="tc-title" href="#">一杯酸奶热量等于两罐可乐？是谣言吗</a>
+					<a class="ta" href="#">三食物补血抗疲劳</a>
+					<i class="top-line"></i>
+					<a class="ta" href="#">秋季老年人洗头要注意</a>
+					<i class="top-line"></i>
+					<a class="ta t-hot" href="#">健身运动能防癌
+						<span class="hot">荐</span>
+					</a>				
+				</div>
+			</div>
+			<div class="buttom">
+				<div class="buttom-content">
+					<a href="#">三招帮你把办公室变成减压中心</a>
+					<a class="ta t-hot" href="#">秋季四款汤养阴润肺最滋补
+						<span class="hot">荐</span>
+					</a>
+					<a href="#">中医：频繁拔罐不利于养生保健</a>
+					<a href="#">三招帮你把办公室变成减压中心</a>
+					<a href="#">中医：频繁拔罐不利于养生保健</a>
+					<a href="#">三招帮你把办公室变成减压中心</a>
+					<a class="ta t-hot" href="#">中医：频繁拔罐不利于养生保健</a>
+					<a href="#">秋冬多喝红枣茶能御寒保暖</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="index">
+			<div class="wrap">
+				<div class="c-left">
+					<div class="l-tabs">
+						<div class="l-tabs-list">
+							<a class="One" href="#">热门</a>
+							<a href="#">本地</a>
+							<a href="#">养生</a>
+							<a href="#">女性</a>
+							<a href="#">美食</a>
+						</div>
+					</div>
+					<div class="l-news">
+						<div class="l-news-box">
+							
+						</div>
+					</div>
+				</div>
+				<div class="c-right">
+					<div class="slide">
+						<div class="tu">
+							<ul class="tu-list clearfix">
+								<li><img src="./images/page1.png"></li>
+								<li><img src="./images/page2.png"></li>
+							</ul>
+						</div>
+						<a href="#" class="s-left"><i></i></a>
+						<a href="#" class="s-right"><i></i></a>
+					</div>
+					<div class="banner">
+						<h2>每日好店</h2>
+						<div class="wrapper">
+							<div class="word1">
+								<div class="text">
+									<span>e家帮 615元优惠券</span>
+									<a href="#">抢</a>
+								</div>
+								<div class="text">
+									<span>懒人厨房 美味食谱</span>
+									<a href="#">抢</a>
+								</div>
+								<div class="text">
+									<span>爱鲜蜂 40元优惠券</span>
+									<a href="#">抢</a>
+								</div>
+							</div>
+							<div class="word1 hide">
+								<div class="text">
+									<span>爱鲜蜂 40元优惠券</span>
+									<a href="#">抢</a>
+								</div>
+							</div>
+						</div>
+						<div class="icon2">
+							<span class="active"></span>
+							<span></span>
+						</div>
+					</div>
+					<div class="search-last">
+						<div class="normal-search">
+							<div class="s-one">
+								<i></i>
+								<a href="#">更多</a>
+							</div>
+							<div class="s-tow">
+								<ul class="icon-page clearfix">
+									<li>
+										<a href="#">
+											<img src="./images/c7.png">
+											<p>查话费</p>
+										</a>
+										<a href="#">
+											<img src="./images/f6410eb.png">
+											<p>查话费</p>
+										</a>
+										<a href="#">
+											<img src="./images/d007b60.png">
+											<p>查话费</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img src="./images/588aa.png">
+											<p>查话费</p>
+										</a>
+										<a href="#">
+											<img src="./images/53bf.png">
+											<p>查话费</p>
+										</a>
+										<a href="#">
+											<img src="./images/f1b054.png">
+											<p>查话费</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img src="./images/c7.png">
+											<p>查话费</p>
+										</a>
+										<a href="#">
+											<img src="./images/f6410eb.png">
+											<p>查话费</p>
+										</a>
+										<a href="#">
+											<img src="./images/d007b60.png">
+											<p>查话费</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img src="./images/588aa.png">
+											<p>查话费</p>
+										</a>
+										<a href="#">
+											<img src="./images/53bf.png">
+											<p>查话费</p>
+										</a>
+										<a href="#">
+											<img src="./images/f1b054.png">
+											<p>查话费</p>
+										</a>
+									</li>
+								</ul>
+								<a href="#" class="i-left"><i></i></a>
+								<a href="#" class="i-right"><i></i></a>
+							</div>
+							<div class="i-line"></div>
+							<div class="s-three">
+								<a href="#">周公解梦</a>
+								<a href="#">星座运势</a>
+								<a href="#">彩票开奖</a>
+								<a href="#">周公解梦</a>
+								<a href="#">星座运势</a>
+								<a href="#">彩票开奖</a>
+								<a href="#">周公解梦</a>
+								<a href="#">星座运势</a>
+								<a href="#">彩票开奖</a>
+								<a href="#">周公解梦</a>
+								<a href="#">星座运势</a>
+								<a href="#">彩票开奖</a>
+							</div>
+						</div>
+						<!-- <div class="normal-search">
+							<div class="s-one">
+								<i></i>
+								<a href="#">更多</a>
+							</div>
+							<div class="s-tow">
+								<ul class="icon-page clearfix">
+									<li>
+										<a href="#">
+											<img src="./images/c7.png">
+											<p>查话费</p>
+										</a>
+										<a href="#">
+											<img src="./images/f6410eb.png">
+											<p>查话费</p>
+										</a>
+										<a href="#">
+											<img src="./images/d007b60.png">
+											<p>查话费</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img src="./images/588aa.png">
+											<p>查话费</p>
+										</a>
+										<a href="#">
+											<img src="./images/53bf.png">
+											<p>查话费</p>
+										</a>
+										<a href="#">
+											<img src="./images/f1b054.png">
+											<p>查话费</p>
+										</a>
+									</li>
+								</ul>
+								<a href="#" class="i-left"><i></i></a>
+								<a href="#" class="i-right"><i></i></a>
+							</div>
+							<div class="i-line"></div>
+							<div class="s-three">
+								<a href="#">周公解梦</a>
+								<a href="#">星座运势</a>
+								<a href="#">彩票开奖</a>
+								<a href="#">周公解梦</a>
+								<a href="#">星座运势</a>
+								<a href="#">彩票开奖</a>
+								<a href="#">周公解梦</a>
+								<a href="#">星座运势</a>
+								<a href="#">彩票开奖</a>
+								<a href="#">周公解梦</a>
+								<a href="#">星座运势</a>
+								<a href="#">彩票开奖</a>
+								<a href="#">周公解梦</a>
+								<a href="#">星座运势</a>
+								<a href="#">彩票开奖</a>
+							</div>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			function goLeft(){
+            	$(".move-list").stop(true,true).animate({
+                    marginLeft:"-=450px",
+                },500,function(){
+                    var first = $(".move-list>li").first();
+                    var last = $(".move-list>li").last();
+                    first.insertAfter(last);
+                    $(".move-list").css("margin-left","-450px");
+                });
+            };
+            function goRight(){
+            	 $(".move-list").stop(true,true).animate({
+                    marginLeft:"+=450px",
+                },500,function(){
+                    var first = $(".tu-list>li").first();
+                    var last = $(".tu-list>li").last();
+                    last.insertBefore(first);
+                    $(".move-list").css("margin-left","-450px");
+                });
+            };
+            //左侧点击
+            $(".contral-left").click(function(){
+			goRight()	
+			});	
+			// 右侧点击
+			$(".contral-right").click(function(){
+				goLeft()
+			});
+			//定时器方法
+			function exportTimer1(){
+				timer1 = setInterval(function(){
+					goLeft();
+				},2000);
+			};
+			//第一次执行定时器
+			exportTimer1();
+			//左侧触碰停止开始定时器
+			$(".contral-left").hover(
+				function(){
+					clearInterval(timer1)
+				},
+				function(){
+					exportTimer1()
+				}
+			);
+			//右侧触碰停止开始定时器
+			$(".contral-right").hover(
+				function(){
+					clearInterval(timer1)
+				},
+				function(){
+					exportTimer1()
+				}
+			);
+
+            function goingLeft(){
+            	$(".tu-list").stop(true,true).animate({
+                    marginLeft:"-=0px",
+                },500,function(){
+                    var first = $(".tu-list>li").first();
+                    var last = $(".tu-list>li").last();
+                    first.insertAfter(last);
+                    $(".tu-list").css("margin-left","0");
+                });
+            };
+            function goingRight(){
+            	 $(".tu-list").stop(true,true).animate({
+                    marginLeft:"+=0px",
+                },500,function(){
+                    var first = $(".tu-list>li").first();
+                    var last = $(".tu-list>li").last();
+                    last.insertBefore(first);
+                    $(".tu-list").css("margin-left","-0");
+                });
+            };
+            $(".s-left").click(function(){
+			goingRight()	
+			});	
+			// 右侧点击
+			$(".s-right").click(function(){
+				goingLeft()
+			});
+			//定时器方法
+			function exportTimer2(){
+				timer2 = setInterval(function(){
+					goingLeft();
+				},2000);
+			};
+			//第一次执行定时器
+			exportTimer2();
+			//左侧触碰停止开始定时器
+			$(".s-left").hover(
+				function(){
+					clearInterval(timer2)
+				},
+				function(){
+					exportTimer2()
+				}
+			);
+			//右侧触碰停止开始定时器
+			$(".s-right").hover(
+				function(){
+					clearInterval(timer2)
+				},
+				function(){
+					exportTimer2()
+				}
+			);
+        });
+        $(function(){
+        	var index = $(".icon2 span.active").index()			
+			function goUp(){
+				if(index == 1) {index = -1;}
+					$(".icon2 span").eq(index+=1).addClass("active").siblings().removeClass("active");
+					console.log(index);
+					$(".word1").addClass("hide").eq(index).slideDown().siblings().removeClass("hide").slideUp();
+			};	
+			function goDown(){	
+				if(index == 0) {index = 1;}
+					$(".icon2 span").eq(index-=1).addClass("active").siblings().removeClass("active");
+					console.log(index);
+					// $(".word1").eq(index).slideUp().siblings().slideDown();
+			};
+			//定时器方法
+			function exportTimer3(){
+				timer3 = setInterval(function(){
+					goUp();
+				},2500);
+			}
+			//第一次执行定时器
+			exportTimer3();
+			//触碰停止开始定时器
+			$(".icon2 span").hover(
+				function(){
+					clearInterval(timer3)
+				},
+				function(){
+					exportTimer3()
+				}
+			)
+			$(".icon2 span.active").hover(
+				function(){
+					clearInterval(timer3)
+				},
+				function(){
+					exportTimer3()
+				}
+			)
+	   		$(".icon2 span").mouseover(function(){
+	   			var index = $(this).index();
+	   			$(".word1").eq(index).fadeIn().siblings().fadeOut();
+	     		$(this).addClass("active").siblings().removeClass("active");
+	  		});
+        });
+   		// $(function(){
+     //        var index = $(".icon2 span.active").index();
+     //        $(".icon2 span").hover(function(){
+     //            $(".word1").stop(true,true).animate({
+     //                marginTop:"-=110px",
+     //            },500,function(){
+     //                var first = $(".word1").first();
+     //                var last = $(".word1").last();
+     //                first.insertAfter(last);
+     //                $(".word").css("margin-left","0");
+     //            })
+     //            //重置index
+     //            if(index == 1) { index = -1; }
+     //            $(".icon2 span").eq(index+=1).addClass("active").siblings().removeClass("active");
+     //        })
+     //        $(".icon2 span ").hover(function(){
+     //            $(".word1").stop(true,true).animate({
+     //                marginTop:"+=110px",
+     //            },500,function(){
+     //                var first = $(".word1").first();
+     //                var last = $(".word1").last();
+     //                last.insertBefore(first);
+     //                $(".word1").css("margin-top","0");
+     //            });
+     //            //重置index
+     //            if(index == 0) { index = 2; }
+     //            $(".icon2 span").eq(index-=1).addClass("active").siblings().removeClass("active");
+     //        })
+     //    })
+     	$(function(){
+     		function toLeft(){
+            	$(".icon-page").stop(true,true).animate({
+                    marginLeft:"-=262px",
+                },500,function(){
+                    var first = $(".icon-page>li").first();
+                    var last = $(".icon-page>li").last();
+                    first.insertAfter(last);
+                    $(".icon-page").css("margin-left","-262px");
+                });
+            };
+            function toRight(){
+            	 $(".icon-page").stop(true,true).animate({
+                    marginLeft:"+=262px",
+                },500,function(){
+                    var first = $(".icon-page>li").first();
+                    var last = $(".icon-page>li").last();
+                    last.insertBefore(first);
+                    $(".icon-page").css("margin-left","-262px");
+                });
+            };
+            //左侧点击
+            $(".i-left").click(function(){
+			toRight()	
+			});	
+			// 右侧点击
+			$(".i-right").click(function(){
+				toLeft()
+			});
+			//定时器方法
+			function exportTimer(){
+				timer = setInterval(function(){
+					toLeft();
+				},2000);
+			};
+			//第一次执行定时器
+			exportTimer();
+			//左侧触碰停止开始定时器
+			$(".i-left").hover(
+				function(){
+					clearInterval(timer)
+				},
+				function(){
+					exportTimer()
+				}
+			);
+			//右侧触碰停止开始定时器
+			$(".i-right").hover(
+				function(){
+					clearInterval(timer)
+				},
+				function(){
+					exportTimer()
+				}
+			);
+			$.ajax({
+                url: "http://test.zhituteam.com/index.php/home/api/getquestion",
+                type: "get",
+                dataType: "json",
+                data: {
+                    type: 2,
+                    level: 94,
+                    lesson: 1360,
+                    question_flag: 2,
+                },
+                success: function(res){
+                    var list = res.result.lists;
+                    var img = "https://media2.chunyuyisheng.com/@/media/images/2013/12/16/eae4d143a51e.jpg"
+                    var str = "";
+                    for(var i = 0; i<list.length; i++){
+                        str+="<div class='n-item'><a class='item-l' href='#'><img src='"+img+"'></a><div class='item-r'><a class='title' href='#'><i class='icon-hot'></i>"+list[i].data.title+"</a><p class='intro'>很多人爱喝牛奶，不仅是因为口感好，也是因为营养丰富。但是也会有人去超市买牛奶、酸奶的时候挑花了眼，不知道如何选择。注意了，如果在包装上看到这几个字，就得多留个心眼儿了！因为....<a class='more' href='#'>[详情]</a></p><span class='from'>来源:&nbsp;健康一线</span></div></div>"
+                    }
+                    $(".l-news-box").html(str)
+                    console.log(str);
+                },
+                error: function(res){
+                    console.log(res);
+                }
+            })
+			
+     	});	
+	</script>
+</body>
+</html>

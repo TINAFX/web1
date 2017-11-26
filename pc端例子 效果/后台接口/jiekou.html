@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+	<script>
+	   $(function(){
+	   	  $.ajax({
+	   	  	url:"http://test.zhituteam.com/index.php/home/api/getquestion",
+	   	  	type:"get",
+	   	  	dataType:"json",
+	   	  	date:{
+	   	  		type:2,
+	   	  		level:94,
+	   	  		lesson:1360,
+	   	  		question_flag:2,
+	   	  	}
+	   	  })
+	   })
+	</script>
+</body>
+</html>

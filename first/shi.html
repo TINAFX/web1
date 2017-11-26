@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./js/jquery-3.2.0.min.js"></script>
+	<style type="text/css">
+	html,body,ul,li {
+		margin:0;
+		padding: 0;
+	}
+         ul {
+         	list-style: none;
+         }
+         .tad {
+         	border: 1px solid red;
+         	width: 200px;
+         	height: 200px;
+         	background: red;
+         }
+         .bar-list{
+         	width: 200px;
+         	height: 40px;
+         	background: yellow
+         }
+        .tad ul li {
+        	float: left;
+        	padding: 10px;
+        }
+        .tab-box {
+        	text-align: center;
+        }
+        .hide {
+        	display: none;
+        }
+        .show {
+        	display: block;
+        }
+         .clearfix::after {
+         	height: 0;
+         	content: "";
+         	display: block;
+         	clear: both;
+
+         }
+  
+	</style>
+</head>
+<body>
+	<div class="tad">
+		<ul class="bar-list clearfix">
+			<li class="selected">1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+		<div class="tab-box">
+            <div class="box">1</div>
+            <div class="box hide">2</div>
+            <div class="box hide">3</div>
+        </div>
+  <script>
+      $(function(){
+      	   $(".bar-list li").click(function(){
+                $(this).addClass("selected").siblings().removeClass("selected");
+                var index = $(this).index();
+                $(".box").eq(index).show().siblings().hide();
+            })
+      })
+  </script>
+</body>
+</html>
